@@ -1,4 +1,5 @@
 const UserController = require("../controllers/user.controller");
+const RecommendationController = require('../controllers/recommendation.controller');
 const authenticate = require("../config/authenticate");
 
 module.exports = app =>{
@@ -10,7 +11,8 @@ module.exports = app =>{
     app.get("/api/users",authenticate,UserController.getAll);
     app.get("/api/user/:id",authenticate,UserController.getUser);
 
-    //QVES
+    //QVEN
+    app.post('/api/new-recommendation/:id',authenticate,RecommendationController.addRecommendation);
 
 
 
