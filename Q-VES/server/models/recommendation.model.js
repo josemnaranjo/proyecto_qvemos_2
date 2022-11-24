@@ -23,8 +23,9 @@ const RecommendationSchema =  new mongoose.Schema({
         default:0,
     },
 
-    creatorId:{
-        type:String,
+    userCreator: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref:"User"
     }
 
 },{timestamps:true});

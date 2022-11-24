@@ -7,7 +7,7 @@ module.exports.Register = async(req,res)=>{
     try{
         const user = new User(req.body);
         await user.save();
-
+        
         const jwtToken = jwt.sign({_id:user._id},process.env.SECRET_KEY);
 
         return res.cookie("usertoken",jwtToken,process.env.SECRET_KEY,{httpOnly:true})
