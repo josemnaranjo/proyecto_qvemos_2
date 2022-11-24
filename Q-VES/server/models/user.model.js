@@ -25,10 +25,6 @@ const UserSchema = new mongoose.Schema({
         required:[true,"Por favor ingresar contraseña"],
         minlength:[8,"La contraseña debe tener minimo 8 caracteres"]
     },
-    points: {
-        type:Number,
-        default:0,
-    }
 },{timestamps:true});
 
 UserSchema.plugin(uniqueValidator,{message:"Error,este correo ya existe"});
