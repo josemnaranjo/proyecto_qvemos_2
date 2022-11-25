@@ -1,38 +1,37 @@
-const {User} = require("../models/user.model");
+const {User} = require("../models/user.model")
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 
-
-module.exports.Register = async(req,res)=>{
+module.exports.Register = async(req,res) => {
     try{
-        const user = new User(req.body);
-        await user.save();
-        
-        const jwtToken = jwt.sign({_id:user._id},process.env.SECRET_KEY);
+        const user = new User (req.body);
+        await user.save()
+
+        const jwtToken = jwt.sign({_id:user._id},process.env.SECRET_KEY)
 
         return res.cookie("usertoken",jwtToken,process.env.SECRET_KEY,{httpOnly:true})
-                .json({message:"", email:user.email,_id:user._id})
+                .json({message:"",email:user.email,_id:user._id})
     }catch(err){
-        res.json({message:"Algo salió mal",error:err.errors})
+        res.json({message:"Algo salio mal",errors:err.errors});
     }
 }
 
 module.exports.Login = async(req,res) => {
     try{
-        const user = await User.findOne({email:req.body.email})
+        const user = await User.findOne({email:req.body.email});
 
         if(user===null){
-            return res.json({errors:{error:{message:"El usuario no existe en la base de datos"}}})
+            res.json({errors:{error:{message:"El usuario no existe en la base de datos"}}})
         }
+
 
         const correctPassword = await bcrypt.compare(req.body.password,user.password);
 
         if(!correctPassword){
-
-            return res.json({errors:{error:{message:"La contraseña es incorrecta"}}})
+            res.json({errors:{error:{message:"La contraseña es incorrecta"}}})
         }
 
-        const jwtToken = jwt.sign({id:user._id}, process.env.SECRET_KEY);
+        const jwtToken = jwt.sign({id:user._id},process.env.SECRET_KEY);
 
         return res.cookie("usertoken",jwtToken,process.env.SECRET_KEY,{httpOnly:true})
         .json({message:"",email:user.email,_id:user._id})
@@ -41,7 +40,6 @@ module.exports.Login = async(req,res) => {
         res.json({message:"Algo salio mal",errors:err.errors});
     }
 }
-
 
 module.exports.Logout = async(req,res) => {
     try{
@@ -52,12 +50,11 @@ module.exports.Logout = async(req,res) => {
     }
 }
 
-
 module.exports.getAll = (request, response) => {
     User.find({})
-        .then((users) => response.json(users))
-        .catch((err) => response.json(err));
-};
+      .then((users) => response.json(users))
+      .catch((err) => response.json(err));
+  };
 
 module.exports.getUser = async(req,res) => {
     try{
