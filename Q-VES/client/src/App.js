@@ -19,7 +19,7 @@ function App() {
       <UserProvider>
         <Routes>
           <Route path="/home" element={<Home />} />
-          <Route path="/inicio-del-juego" element={<InicioDeJuego />} />
+          <Route path="/inicio-del-juego/:id" element={<InicioDeJuego />} />
           <Route path="/votaciones" element={<Votaciones />} />
           <Route path="/final-del-juego" element={<ResultadoFinal />} />
           <Route path="/comentarios" element={<Comentarios />} />

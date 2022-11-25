@@ -1,13 +1,17 @@
 import React from 'react';
 import {useUser} from '../contexts/userContext';
 import { logout } from '../services/user.services';
+import {useNavigate} from 'react-router-dom';
 
 const Navbar = () => {
     const {user,setUser} = useUser();
+    const navigate = useNavigate();
 
     const renderInfo = ()=>{
         if(user){
-            return(<> ¡Hola {user.firstName}!</>)
+            return(<> ¡Bienvenido {user.firstName}!</>)
+        }else{
+            return(<>Por favor, inicia sesión</>)
         }
     }
 
@@ -17,13 +21,17 @@ const Navbar = () => {
         else window.alert("Error. No hemos podido desloguear tu usuario")
     }
 
+    const toNewGame = ()=>{
+        navigate(`/inicio-del-juego/${user._id}`)
+    }
+
     return (
       <div>
-            <nav className="navbar navbar-expand-md navbar-dark bg-dark">
+            <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                 <a className="navbar-brand" href="/">
                     Q-VEMOS
                 </a>
-                <div className=" navbar" id="navbarNav">
+                <div className="navbar" id="navbarNav">
                     <ul className="navbar-nav">
                         <li className="nav-item active">
                             <a className="nav-link" href="/home">
@@ -31,9 +39,9 @@ const Navbar = () => {
                             </a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">
-                                Nuevo juego
-                            </a>
+                            <button className='btn btn-outline-light btn-sm' onClick={toNewGame}>
+                                Nuego juego
+                            </button>
                         </li>
                         <li className="nav-item">
                             <a className="nav-link" href="/register">
@@ -46,13 +54,15 @@ const Navbar = () => {
                             </a>
                         </li>
                     </ul>
-                    <span className="navbar-text">
-                        {renderInfo()}
-                    </span>
-                    <span className="navbar-text">
-                        {user && <button onClick={logoutUser}>Logout</button>}
-                    </span>
-                </div>
+                    </div>
+                    <div className='collapse navbar-collapse justify-content-end'>
+                        <ul className='navbar-nav d-flex'>
+                            <li className='navbar-text'>
+                                {renderInfo()}
+                            </li>
+                                {user && <button className='btn btn-outline-light btn-sm' onClick={logoutUser}>Logout</button>}
+                        </ul>
+                    </div>
             </nav>
         </div>
     );
