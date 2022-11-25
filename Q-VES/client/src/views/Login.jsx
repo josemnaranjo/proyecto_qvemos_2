@@ -1,11 +1,14 @@
 import React,{useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import LoginForm from '../components/LoginForm';
-import { login } from '../services/user.services';
+import { login, getUser } from '../services/user.services';
+import Navbar from '../components/Navbar';
+import { useUser } from '../contexts/userContext';
 
 const Login = () => {
     const [errors,setErrors] = useState([]);
     const navigate = useNavigate();
+    const {setUser} = useUser();
 
     const loginToWeb = async(values) =>{
         console.log("LOGIN VIEW - LINEA 11", values);
@@ -15,7 +18,9 @@ const Login = () => {
 
         if(response.data.message===""){
             console.log("LOGIN VIEW - LINEA 17", response);
-            navigate('/');
+            const response2 = await getUser(response.data._id);
+            setUser(response2.data);
+            navigate('/home');
 
         }else{
             const errorResponse = response.data.errors;
@@ -29,6 +34,7 @@ const Login = () => {
     }
     return (
         <div>
+            <Navbar/>
             {errors?.map((err,i)=>(<div key={i}>{err}</div>))}
             <LoginForm email="" password="" onSubmitProp={loginToWeb}/>
         </div>

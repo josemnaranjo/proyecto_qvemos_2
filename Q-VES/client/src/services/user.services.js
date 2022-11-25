@@ -21,3 +21,5 @@ export const logout = async () => {
         return {success:false,data:{errors:{error:err}}}
     }
 }
+
+
