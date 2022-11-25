@@ -39,9 +39,10 @@ const Navbar = () => {
                             </a>
                         </li>
                         <li className="nav-item">
+                            {user && 
                             <button className='btn btn-outline-light btn-sm' onClick={toNewGame}>
                                 Nuego juego
-                            </button>
+                            </button>}
                         </li>
                         <li className="nav-item">
                             <a className="nav-link" href="/register">
