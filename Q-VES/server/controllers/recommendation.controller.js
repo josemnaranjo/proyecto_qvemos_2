@@ -1,5 +1,5 @@
 const {Recommendation} = require('../models/recommendation.model');
-// const {FourFinalists} = require('../models/fourFinalists.model');
+const {ThreeFinalists} = require('../models/threeFinalists.model');
 const {User} = require('../models/user.model');
 
 module.exports.addRecommendation = async (req,res) => {
@@ -26,13 +26,19 @@ module.exports.addRecommendation = async (req,res) => {
 };
 
 
-module.exports.getFourFinalists = async (req,res) =>{
+module.exports.getThreeFinalists = async (req,res) =>{
     try{
-        let fourFinal = await Recommendation.aggregate([
-            {$sample:{size:3}}
-        ]);
 
-        res.json({fourFinal})
+
+
+        const threeMovies = await Recommendation.aggregate([
+            {
+                $sample:{size:3}
+            }
+        ])
+
+
+        res.json({threeMovies})
 
     }catch(err){
         res.status(500).json({

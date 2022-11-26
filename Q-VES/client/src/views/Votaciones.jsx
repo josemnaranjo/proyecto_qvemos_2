@@ -1,5 +1,6 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Navbar from '../components/Navbar';
+import { getFourFinalists } from '../services/recommendations.services';
 
 const Votaciones = () => {
     return (

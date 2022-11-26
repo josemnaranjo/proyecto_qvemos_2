@@ -26,8 +26,7 @@ const RecommendationSchema =  new mongoose.Schema({
     userCreator: {
         type: mongoose.Schema.Types.ObjectId,
         ref:"User"
-    }
-
+    },
 },{timestamps:true});
 
 
