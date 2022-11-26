@@ -33,7 +33,7 @@ const RegisterForm = (props) => {
     })
     return (
         <div>
-        <h1>Formulario de registro</h1>
+        <h1 className='mt-3'>Formulario de registro</h1>
         <Formik
             initialValues={{
                 firstName:firstName,
@@ -48,37 +48,42 @@ const RegisterForm = (props) => {
             >
             {({errors,touched,values})=>(
                 <Form>
-                    <div>
-                        <label htmlFor='firstName'>Nombre:</label>
-                        <Field id='firstName' type='text' name='firstName'/>
-                        {errors.firstName && touched.firstName ? <p>{errors.firstName}</p>:null}
-                    </div>
+                    <div className= 'container d-flex justify-content-center align-items-center p-4 border rounded'>
+                        <div className='m-3 w-25'>
+                            <div className='row'>
+                                <label htmlFor='firstName'>Nombre:</label>
+                                <Field id='firstName' type='text' name='firstName'/>
+                                {errors.firstName && touched.firstName ? <p>{errors.firstName}</p>:null}
+                            </div>
 
-                    <div>
-                        <label htmlFor='lastName'>Apellido:</label>
-                        <Field id='lastName' type='text' name='lastName'/>
-                        {errors.lastName && touched.lastName ? <p>{errors.lastName}</p>:null}
-                    </div>
+                            <div className='row'>
+                                <label htmlFor='lastName'>Apellido:</label>
+                                <Field id='lastName' type='text' name='lastName'/>
+                                {errors.lastName && touched.lastName ? <p>{errors.lastName}</p>:null}
+                            </div>
 
-                    <div>
-                        <label htmlFor='email'>Correo electrónico:</label>
-                        <Field id='email' type='text' name='email'/>
-                        {errors.email && touched.email ? <p>{errors.email}</p>:null}
-                    </div>
+                            <div className='row'>
+                                <label htmlFor='email'>Email:</label>
+                                <Field id='email' type='text' name='email'/>
+                                {errors.email && touched.email ? <p>{errors.email}</p>:null}
+                            </div>
+                        </div>
 
-                    <div>
-                        <label htmlFor='password'>Contraseña:</label>
-                        <Field id='password' type='password' name='password'/>
-                        {errors.password && touched.password ? <p>{errors.password}</p>:null}
-                    </div>
+                        <div className='m-3 w-25'>
+                            <div className='row'>
+                                <label htmlFor='password'>Contraseña:</label>
+                                <Field id='password' type='password' name='password'/>
+                                {errors.password && touched.password ? <p>{errors.password}</p>:null}
+                            </div>
 
-                    <div>
-                        <label htmlFor='confirmPassword'>Confirmar contraseña:</label>
-                        <Field id='confirmPassword' type='password' name='confirmPassword'/>
-                        {errors.confirmPassword && touched.confirmPassword ? <p>{errors.confirmPassword}</p>:null}
+                            <div className='row'>
+                                <label htmlFor='confirmPassword'>Confirmar contraseña:</label>
+                                <Field id='confirmPassword' type='password' name='confirmPassword'/>
+                                {errors.confirmPassword && touched.confirmPassword ? <p>{errors.confirmPassword}</p>:null}
+                            </div>                            
+                        </div>
                     </div>
-                    
-                    <button type='submit' disabled={Object.values(errors).length>0 || Object.values(touched).length===0}>Crear usuario</button>
+                    <button className='btn btn-dark m-3' type='submit' disabled={Object.values(errors).length>0 || Object.values(touched).length===0}>Crear usuario</button>
                 </Form>
             )}
         </Formik>

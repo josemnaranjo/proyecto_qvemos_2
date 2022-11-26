@@ -28,9 +28,6 @@ module.exports.addRecommendation = async (req,res) => {
 
 module.exports.getThreeFinalists = async (req,res) =>{
     try{
-
-
-
         const threeMovies = await Recommendation.aggregate([
             {
                 $sample:{size:3}
