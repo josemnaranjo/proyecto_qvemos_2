@@ -1,5 +1,5 @@
 const {Recommendation} = require('../models/recommendation.model');
-// const {Party} = require('../models/party.model');
+// const {FourFinalists} = require('../models/fourFinalists.model');
 const {User} = require('../models/user.model');
 
 module.exports.addRecommendation = async (req,res) => {
@@ -23,4 +23,23 @@ module.exports.addRecommendation = async (req,res) => {
             err
         })
     }
+};
+
+
+module.exports.getFourFinalists = async (req,res) =>{
+    try{
+        let fourFinal = await Recommendation.aggregate([
+            {$sample:{size:3}}
+        ]);
+
+        res.json({fourFinal})
+
+    }catch(err){
+        res.status(500).json({
+            message: "No hemos podido obtener los semifinalistas",
+            err
+        })
+    }
 }
+
+

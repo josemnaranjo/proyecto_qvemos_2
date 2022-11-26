@@ -30,5 +30,6 @@ const RecommendationSchema =  new mongoose.Schema({
 
 },{timestamps:true});
 
+
 const Recommendation = mongoose.model("Recommendation",RecommendationSchema);
 module.exports = {RecommendationSchema,Recommendation};
