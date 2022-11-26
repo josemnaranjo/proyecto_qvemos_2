@@ -25,10 +25,20 @@ const InicioDeJuego = () => {
     return (
         <div>
             <Navbar />
-            <h1>Inicio de juego</h1>
-            <RecommendationsForm title="" genre="" onSubmitProp={newRecommendations}/>
-            <RecommendationsForm title="" genre="" onSubmitProp={newRecommendations}/>
-            <button disabled={control<2} onClick={toVoting}>Siguiente etapa</button>
+            <h1 className='m-4'>Inicio de juego</h1>
+            <div className='container'>
+                <div className='row m-4'>
+                    <div className='col'>
+                        <RecommendationsForm title="" genre="" onSubmitProp={newRecommendations}/>
+                    </div>
+                </div>
+                <div className='row m-4'>
+                    <div className='col'>
+                        <RecommendationsForm title="" genre="" onSubmitProp={newRecommendations}/>
+                    </div>
+                </div>
+            </div>
+            <button className='btn btn-info btn-sm mb-3' disabled={control<2} onClick={toVoting}>Siguiente etapa</button>
         </div>
     );
 }
