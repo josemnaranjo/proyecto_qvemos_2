@@ -22,6 +22,7 @@ const Navbar = () => {
     }
 
     const toNewGame = ()=>{
+        console.log(user);
         navigate(`/inicio-del-juego/${user._id}`)
     }
 
