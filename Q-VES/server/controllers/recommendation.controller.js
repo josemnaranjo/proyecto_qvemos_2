@@ -42,12 +42,13 @@ module.exports.createFinalistsCollection = async (req,res) =>{
 
 module.exports.getThreeFinalists = async (req,res) =>{
     try{
+        const collection = req.params;
+        const id = collection.id
         const threeMovies = await Recommendation.aggregate([
             {
                 $sample:{size:3},
             }
         ]);
-
         const finalists = await ThreeFinalists.findByIdAndUpdate(id,{
             $push:{
                 Movies: threeMovies
