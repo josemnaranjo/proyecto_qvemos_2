@@ -26,19 +26,10 @@ module.exports.addRecommendation = async (req,res) => {
 };
 
 
-module.exports.getThreeFinalists = async (req,res) =>{
+module.exports.createFinalistsCollection = async (req,res) =>{
     try{
-
-
-
-        const threeMovies = await Recommendation.aggregate([
-            {
-                $sample:{size:3}
-            }
-        ])
-
-
-        res.json({threeMovies})
+        const finalists = await ThreeFinalists.create({});
+        res.json({finalists})
 
     }catch(err){
         res.status(500).json({
@@ -47,5 +38,37 @@ module.exports.getThreeFinalists = async (req,res) =>{
         })
     }
 }
+
+
+module.exports.getThreeFinalists = async (req,res) =>{
+    try{
+        const collection = req.params;
+        const id = collection.id;
+
+        const threeMovies = await Recommendation.aggregate([
+            {
+                $sample:{size:3},
+            }
+        ]);
+
+        const finalists = await ThreeFinalists.findByIdAndUpdate(id,{
+            $push:{
+                Movies: threeMovies
+            }
+        })
+
+
+        res.json({finalists})
+
+    }catch(err){
+        res.status(500).json({
+            message: "No hemos podido obtener los semifinalistas",
+            err
+        })
+    }
+};
+
+
+
 
 
