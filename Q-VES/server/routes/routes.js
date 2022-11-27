@@ -13,7 +13,8 @@ module.exports = app =>{
 
     //QVEN
     app.post('/api/new-recommendation/:id',authenticate,RecommendationController.addRecommendation);
-    app.get('/api/finals',authenticate,RecommendationController.getThreeFinalists);
+    app.get('/api/new-finalists-collection',authenticate,RecommendationController.createFinalistsCollection);
+    app.get('/api/finals/:id',authenticate,RecommendationController.getThreeFinalists);
 
 
 
