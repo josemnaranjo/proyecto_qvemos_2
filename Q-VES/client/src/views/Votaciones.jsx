@@ -22,8 +22,13 @@ const Votaciones = () => {
     return (
         <div>
             <Navbar/>
-            <h1>Votaciones</h1>
-            {finalists?.map((movie,i)=>(<p key={i}>{movie.title} {movie.genre}</p>))}
+            <h1>¡Vota!</h1>
+            {finalists?.map((movie,i)=>(
+                <div key={i}>
+                    <p key={i}>{movie.title} {movie.genre}</p>
+                    <button>+</button>
+                </div>
+            ))}
         </div>
     );
 }

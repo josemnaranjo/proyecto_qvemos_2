@@ -10,3 +10,5 @@ export const getThreeFinalists = async(id) =>
 
 export const getFinalists = async(id) => 
     await axios.get(`http://localhost:8000/api/finalists-collection/${id}`);
+
+
