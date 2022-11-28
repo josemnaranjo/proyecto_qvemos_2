@@ -29,11 +29,11 @@ module.exports.addRecommendation = async (req,res) => {
 module.exports.createFinalistsCollection = async (req,res) =>{
     try{
         const finalists = await ThreeFinalists.create({});
-        res.json({finalists})
+        res.json({id:finalists.id})
 
     }catch(err){
         res.status(500).json({
-            message: "No hemos podido obtener los semifinalistas",
+            message: "No hemos podido crear la colección",
             err
         })
     }
@@ -56,16 +56,33 @@ module.exports.getThreeFinalists = async (req,res) =>{
         })
 
 
-        res.json({finalists})
+        res.json({finalists:finalists})
 
     }catch(err){
         res.status(500).json({
-            message: "No hemos podido obtener los semifinalistas",
+            message: "No hemos podido crear a los semifinalistas",
             err
         })
     }
 };
 
+
+module.exports.getFinalists = async(req,res) =>{
+    try{
+        const result = req.params;
+        const id = result.id;
+        const finalists = await ThreeFinalists.findById(id);
+
+        res.json({movies:finalists.Movies});
+
+    }catch(err){
+        res.status(500).json({
+            message: "No hemos podido obtener a los semifinalistas",
+            err
+        })
+
+    }
+}
 
 
 

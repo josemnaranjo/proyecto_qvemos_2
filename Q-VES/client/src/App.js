@@ -20,7 +20,7 @@ function App() {
         <Routes>
           <Route path="/home" element={<Home />} />
           <Route path="/inicio-del-juego/:id" element={<InicioDeJuego />} />
-          <Route path="/votaciones" element={<Votaciones />} />
+          <Route path="/votaciones/:id" element={<Votaciones />} />
           <Route path="/final-del-juego" element={<ResultadoFinal />} />
           <Route path="/comentarios" element={<Comentarios />} />
           <Route path="/register" element={<Register />} />
