@@ -15,6 +15,11 @@ const Votaciones = () => {
         setFinalist(movies);
     };
 
+    const addVote = (id) =>{
+        console.log(id)
+
+    }
+
     useEffect(() => {
         getFinalistsFromService();
     }, []);
@@ -27,7 +32,7 @@ const Votaciones = () => {
             {finalists?.map((movie,i)=>(
                 <div className='d-flex m-2 p-2 justify-content-center align-items-center border rounded' key={i}>
                     <p className='pt-3'>{movie.title}</p>
-                    <button className='btn btn-outline-dark btn-sm'>Votar</button>
+                    <button className='btn btn-outline-dark btn-sm' onClick={()=>addVote(movie._id)}>Votar</button>
                 </div>
             ))}
             </div>

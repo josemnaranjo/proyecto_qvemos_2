@@ -84,7 +84,23 @@ module.exports.getFinalists = async(req,res) =>{
 }
 
 module.exports.addVote = async(req,res) =>{
-    
+    try{
+        const {id} = req.body;
+
+        const result = await Recommendation.findByIdAndUpdate(id,{
+            $inc:{
+                votes:1
+            }
+        },{new:true, runValidators:true});
+
+        res.json({result});
+
+    }catch(err){
+        res.status(500).json({
+            message: "No hemos podido enviar tu voto",
+            err
+        });
+    }
 }
 
 
