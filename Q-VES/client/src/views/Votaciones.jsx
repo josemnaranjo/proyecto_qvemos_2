@@ -23,12 +23,15 @@ const Votaciones = () => {
         <div>
             <Navbar/>
             <h1>¡Vota!</h1>
+            <div className='container p-2 border rounded'>
             {finalists?.map((movie,i)=>(
-                <div key={i}>
-                    <p key={i}>{movie.title} {movie.genre}</p>
-                    <button>+</button>
+                <div className='d-flex m-2 p-2 justify-content-center align-items-center border rounded' key={i}>
+                    <p className='pt-3'>{movie.title}</p>
+                    <button className='btn btn-outline-dark btn-sm'>Votar</button>
                 </div>
             ))}
+            </div>
+            
         </div>
     );
 }
