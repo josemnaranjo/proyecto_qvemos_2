@@ -85,7 +85,7 @@ module.exports.getFinalists = async(req,res) =>{
 
 module.exports.addVote = async(req,res) =>{
     try{
-        const {id} = req.body;
+        const {id} = req.params;
 
         const result = await Recommendation.findByIdAndUpdate(id,{
             $inc:{
