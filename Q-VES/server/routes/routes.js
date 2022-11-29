@@ -16,6 +16,7 @@ module.exports = app =>{
     app.get('/api/new-finalists-collection',authenticate,RecommendationController.createFinalistsCollection);
     app.get('/api/finals/:id',authenticate,RecommendationController.getThreeFinalists);
     app.get('/api/finalists-collection/:id',authenticate,RecommendationController.getFinalists);
-    app.post('/api/addVote/:id',authenticate,RecommendationController.addVote);
+    app.post('/api/add-vote/:id',authenticate,RecommendationController.addVoteToRecommendation);
+    app.get('/api/get-winner',authenticate,RecommendationController.getWinner);
 
 }

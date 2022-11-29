@@ -12,4 +12,4 @@ export const getFinalists = async(id) =>
     await axios.get(`http://localhost:8000/api/finalists-collection/${id}`);
 
 
-export const addVote = async(id) => await axios.post(`http://localhost:8000/api/addVote/${id}`,);
+export const addVote = async(id,idTF) => await axios.post(`http://localhost:8000/api/add-vote/${id}`,idTF)

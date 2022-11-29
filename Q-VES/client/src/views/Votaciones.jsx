@@ -16,7 +16,7 @@ const Votaciones = () => {
     };
 
     const addVoteFromService = async(idMovie) =>{
-        await addVote(idMovie);
+        await addVote(idMovie,{_id:id});
     }
 
     useEffect(() => {

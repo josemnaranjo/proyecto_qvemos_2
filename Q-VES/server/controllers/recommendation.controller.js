@@ -83,17 +83,23 @@ module.exports.getFinalists = async(req,res) =>{
     }
 }
 
-module.exports.addVote = async(req,res) =>{
+module.exports.addVoteToRecommendation = async(req,res) =>{
     try{
         const {id} = req.params;
+        const {_id} = req.body;
 
         const result = await Recommendation.findByIdAndUpdate(id,{
             $inc:{
                 votes:1
             }
         },{new:true, runValidators:true});
+         const resutl2 = await ThreeFinalists.findByIdAndUpdate(_id,{
+            $push:{
+                Movies:result
+            }
+         })
 
-        res.json({result});
+        res.json({result,resutl2});
 
     }catch(err){
         res.status(500).json({
@@ -103,5 +109,27 @@ module.exports.addVote = async(req,res) =>{
     }
 }
 
+
+
+
+module.exports.getWinner = async(req,res) =>{
+    try{
+        const result= await ThreeFinalists.aggregate([
+           {$unwind: "$Movies"},
+           {$sort:{"Movies.votes":-1}}
+        ]);
+
+    
+
+        res.json(result)
+
+    }catch(err){
+        res.status(500).json({
+            message: "No hemos podido obtener el orden las películas",
+            err
+        });
+
+    }
+}
 
 
