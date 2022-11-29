@@ -114,11 +114,11 @@ module.exports.addVoteToRecommendation = async(req,res) =>{
 
 module.exports.getWinner = async(req,res) =>{
     try{
-        const result= await ThreeFinalists.aggregate([
+        const finalistsOrdered= await ThreeFinalists.aggregate([
            {$unwind: "$Movies"},
            {$sort:{"Movies.votes":-1}}
         ]);
-        res.json(result)
+        res.json(finalistsOrdered)
 
     }catch(err){
         res.status(500).json({
