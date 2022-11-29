@@ -1,11 +1,13 @@
 import React, {useState, useEffect} from 'react';
 import Navbar from '../components/Navbar';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { getFinalists, addVote } from '../services/recommendations.services';
 
 const Votaciones = () => {
     const {id} = useParams();
-    const [finalists,setFinalist] = useState([])
+    const [finalists,setFinalist] = useState([]);
+    const [next,setNext] = useState(false);
+    const navigate = useNavigate();
 
     const getFinalistsFromService = async() =>{
         // console.log(id);
@@ -17,6 +19,11 @@ const Votaciones = () => {
 
     const addVoteFromService = async(idMovie) =>{
         await addVote(idMovie,{_id:id});
+        setNext(true);
+    };
+
+    const toWinnerPage = () =>{
+        navigate('/ganador');
     }
 
     useEffect(() => {
@@ -34,6 +41,7 @@ const Votaciones = () => {
                     <button className='btn btn-outline-dark btn-sm' onClick={()=>addVoteFromService(movie._id)}>Votar</button>
                 </div>
             ))}
+            {next? <button className='btn' onClick={toWinnerPage}>Ver ganador</button>: null}
             </div>
             
         </div>
