@@ -118,9 +118,6 @@ module.exports.getWinner = async(req,res) =>{
            {$unwind: "$Movies"},
            {$sort:{"Movies.votes":-1}}
         ]);
-
-    
-
         res.json(result)
 
     }catch(err){
