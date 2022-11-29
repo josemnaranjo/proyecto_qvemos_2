@@ -25,6 +25,7 @@ function App() {
           <Route path="/comentarios" element={<Comentarios />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/ganador" element={<ResultadoFinal />} />
         </Routes>
       </UserProvider>
     </div>
