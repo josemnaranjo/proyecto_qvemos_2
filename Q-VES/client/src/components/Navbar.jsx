@@ -31,20 +31,20 @@ const Navbar = () => {
     return (
       <div>
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-                <a className="navbar-brand" href="/">
+                <a className="navbar-brand" href="/home">
                     Q-VEMOS
                 </a>
                 <div className="navbar" id="navbarNav">
                     <ul className="navbar-nav">
-                        <li className="nav-item active">
+                        {/* <li className="nav-item active">
                             <a className="nav-link" href="/home">
                                 Home
                             </a>
-                        </li>
+                        </li> */}
                         <li className="nav-item">
                             {user && 
                             <button className='btn btn-outline-light btn-sm' onClick={toNewGame}>
-                                Nuego juego
+                                Nuevo juego
                             </button>}
                         </li>
                         <li className="nav-item">

@@ -20,10 +20,25 @@ const Home = () => {
     return (
         <div>
             <Navbar/>
-            <h1>Este es el home</h1>
-            {bestMovies?.map((movie,i)=>(
-                <p key={i}>{movie.title} {movie.score}</p>
-            ))}
+            <h1 className='m-4'>Top 3 mejores recomendaciones</h1>
+            <div className='container'>
+                <table className='table table-striped table-hover table-bordered table-sm'>
+                    <thead>
+                        <tr>
+                            <th scope="col">Titulo</th>
+                            <th scope="col">Puntuacion</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {bestMovies?.map((movie,i)=>(
+                            <tr key={i}>
+                                <td>{movie.title}</td>
+                                <td>{movie.score}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
         </div>
     );
 }

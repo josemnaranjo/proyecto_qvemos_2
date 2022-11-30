@@ -30,7 +30,6 @@ const Evaluation = () => {
         <div>
             <Navbar/>
             <h1>¿Qué te pareció la película?</h1>
-
             <div>
                 {winnerTitle ? <h3>{winnerTitle}</h3>: null}
                 <EvaluationForm id={id} onSubmitProp ={addScoreFromService}/>

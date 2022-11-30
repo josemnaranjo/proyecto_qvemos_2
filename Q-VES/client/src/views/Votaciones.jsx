@@ -41,7 +41,7 @@ const Votaciones = () => {
                     <button className='btn btn-outline-dark btn-sm' onClick={()=>addVoteFromService(movie._id)}>Votar</button>
                 </div>
             ))}
-            {next? <button className='btn' onClick={toWinnerPage}>Ver ganador</button>: null}
+            {next ? <button className='btn btn-success' onClick={toWinnerPage}>Ver ganador</button>: null}
             </div>
             
         </div>
