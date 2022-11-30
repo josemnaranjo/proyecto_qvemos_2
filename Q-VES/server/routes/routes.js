@@ -19,4 +19,5 @@ module.exports = app =>{
     app.post('/api/add-vote/:id',authenticate,RecommendationController.addVoteToRecommendation);
     app.get('/api/get-winner',authenticate,RecommendationController.getWinner);
     app.post('/api/score-winner/:id',authenticate,RecommendationController.addScore);
+    app.delete('/api/delete-collection', authenticate,RecommendationController.deleteThreeCollection)
 }

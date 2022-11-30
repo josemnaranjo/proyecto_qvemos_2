@@ -17,3 +17,5 @@ export const addVote = async(id,idTF) => await axios.post(`http://localhost:8000
 export const getWinner = async () => await axios.get('http://localhost:8000/api/get-winner');
 
 export const addScore = async (id,score) => await axios.post(`http://localhost:8000/api/score-winner/${id}`,score);
+
+export const deleteThreeCollection = async() => await axios.delete('http://localhost:8000/api/delete-collection')

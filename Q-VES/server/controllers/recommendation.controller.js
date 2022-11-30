@@ -146,6 +146,21 @@ module.exports.addScore = async(req,res) =>{
             err
         });
     }
+};
+
+module.exports.deleteThreeCollection = async (req,res) => {
+    try{
+        await ThreeFinalists.deleteOne({});
+        res.json({ 
+            message: 'Se ha eliminado paquete exitosamente de la agencia'
+        })
+
+    }catch(err){
+        res.status(500).json({ 
+            message: 'Ups no hemos podido crear el paquete de viaje',
+            err
+        })
+    }
 }
 
 
