@@ -18,4 +18,6 @@ export const getWinner = async () => await axios.get('http://localhost:8000/api/
 
 export const addScore = async (id,score) => await axios.post(`http://localhost:8000/api/score-winner/${id}`,score);
 
-export const deleteThreeCollection = async() => await axios.delete('http://localhost:8000/api/delete-collection')
+export const deleteThreeCollection = async() => await axios.delete('http://localhost:8000/api/delete-collection');
+
+export const getThreeBestMovies = async () => await axios.get('http://localhost:8000/api/best-scored-movies');
