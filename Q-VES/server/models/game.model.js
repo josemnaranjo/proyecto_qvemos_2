@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
-const {RecommendationSchema} = require('./recommendation.model');
+const {RecommendationSchema} = require('../models/recommendation.model');
 
 const GameSchema = new mongoose.Schema({
-    name: {
+    name:{
         type: String,
         required: [true,"Debes ingresar un nombre del juego"],
     },

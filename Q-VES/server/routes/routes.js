@@ -1,5 +1,6 @@
 const UserController = require("../controllers/user.controller");
 const RecommendationController = require('../controllers/recommendation.controller');
+const GameController = require('../controllers/game.controller');
 const authenticate = require("../config/authenticate");
 
 module.exports = app =>{
@@ -21,4 +22,9 @@ module.exports = app =>{
     app.post('/api/score-winner/:id',authenticate,RecommendationController.addScore);
     app.delete('/api/delete-collection', authenticate,RecommendationController.deleteThreeCollection);
     app.get('/api/best-scored-movies',RecommendationController.getMoviesWithBestScores);
+
+    //NUEVO TIPO DE JUEGO
+
+    app.get('/api/create-new-game',authenticate,GameController.createNewGame);
+    app.post('/api/recommendations/:id',authenticate,GameController.addRecommendation);
 }
