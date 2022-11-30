@@ -109,8 +109,6 @@ module.exports.addVoteToRecommendation = async(req,res) =>{
 }
 
 
-
-
 module.exports.getWinner = async(req,res) =>{
     try{
         const finalistsOrdered= await ThreeFinalists.aggregate([
@@ -147,6 +145,7 @@ module.exports.addScore = async(req,res) =>{
     }
 };
 
+
 module.exports.deleteThreeCollection = async (req,res) => {
     try{
         await ThreeFinalists.deleteOne({});
@@ -157,6 +156,22 @@ module.exports.deleteThreeCollection = async (req,res) => {
     }catch(err){
         res.status(500).json({ 
             message: 'Ups no hemos podido crear el paquete de viaje',
+            err
+        })
+    }
+};
+
+module.exports.getMoviesWithBestScores = async (req,res) => {
+    try{
+        const bestThreeMovies = await Recommendation.aggregate([
+            {$sort:{score:-1}},
+        ]);
+
+        res.json(bestThreeMovies);
+
+    }catch(err){
+        res.status(500).json({ 
+            message: 'Ups no hemos podido traes las mejores recomendaciones',
             err
         })
     }
