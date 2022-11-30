@@ -5,7 +5,8 @@ const {User} = require('../models/user.model');
 
 module.exports.createNewGame = async (req,res) => {
     try{
-        const {name} =req.body
+        const {name} =req.body;
+        console.log(name);
         const game = await Game.create({name});
         res.json({id:game.id})
 
