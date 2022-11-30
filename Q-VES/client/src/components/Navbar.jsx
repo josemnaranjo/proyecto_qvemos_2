@@ -2,6 +2,7 @@ import React from 'react';
 import {useUser} from '../contexts/userContext';
 import { logout } from '../services/user.services';
 import {useNavigate} from 'react-router-dom';
+import { deleteThreeCollection } from '../services/recommendations.services';
 
 const Navbar = () => {
     const {user,setUser} = useUser();
@@ -13,18 +14,19 @@ const Navbar = () => {
         }else{
             return(<>Por favor, inicia sesión</>)
         }
-    }
+    };
 
     const logoutUser = async()=>{
         const {success} = await logout();
         if(success) setUser(null)
         else window.alert("Error. No hemos podido desloguear tu usuario")
-    }
+    };
 
-    const toNewGame = ()=>{
+    const toNewGame = async()=>{
         console.log(user);
+        await deleteThreeCollection();
         navigate(`/inicio-del-juego/${user._id}`)
-    }
+    };
 
     return (
       <div>
