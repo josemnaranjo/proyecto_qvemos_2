@@ -132,10 +132,10 @@ module.exports.getWinner = async(req,res) =>{
 module.exports.addScore = async(req,res) =>{
     try{
         const {id} = req.params;
-        const {points} = req.body;
+        const {score} = req.body;
         const result = await Recommendation.findByIdAndUpdate(id,{
             $inc:{
-                score:points
+                score:score
             }
         },{new:true, runValidators:true});
         res.json(result);

@@ -7,6 +7,7 @@ import ResultadoFinal from './views/ResultadoFinal.jsx';
 import Comentarios from './views/Comentarios';
 import Register from './views/Register';
 import Login from './views/Login';
+import Evaluation from './views/Evaluation';
 import {UserProvider} from './contexts/userContext';
 
 
@@ -26,6 +27,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/ganador" element={<ResultadoFinal />} />
+          <Route path="/evaluation/:id" element={<Evaluation />} />
         </Routes>
       </UserProvider>
     </div>
