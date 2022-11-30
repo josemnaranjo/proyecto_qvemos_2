@@ -1,6 +1,6 @@
 import React, {useState,useEffect} from 'react';
 import Navbar from '../components/Navbar';
-import { useParams } from 'react-router-dom';
+import { useParams,useNavigate } from 'react-router-dom';
 import { getWinner,addScore } from '../services/recommendations.services';
 import EvaluationForm from '../components/EvaluationForm';
 
@@ -8,6 +8,7 @@ const Evaluation = () => {
 
     const [winnerTitle,setWinnerTitle]=useState();
     const {id} = useParams();
+    const navigate = useNavigate();
 
     const getWinnerFromService = async () =>{
         const winnerArray = await getWinner();
@@ -21,6 +22,7 @@ const Evaluation = () => {
 
     const addScoreFromService = async (id,values) => {
         await addScore(id,values);
+        navigate('/home');
     }
     
 
