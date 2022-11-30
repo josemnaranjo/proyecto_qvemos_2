@@ -129,4 +129,23 @@ module.exports.getWinner = async(req,res) =>{
     }
 }
 
+module.exports.addScore = async(req,res) =>{
+    try{
+        const {id} = req.params;
+        const {points} = req.body;
+        const result = await Recommendation.findByIdAndUpdate(id,{
+            $inc:{
+                score:points
+            }
+        },{new:true, runValidators:true});
+        res.json(result);
+        
+    }catch(err){
+        res.status(500).json({
+            message: "No hemos podido enviar tu voto",
+            err
+        });
+    }
+}
+
 

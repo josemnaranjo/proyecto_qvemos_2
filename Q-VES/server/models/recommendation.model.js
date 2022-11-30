@@ -16,7 +16,7 @@ const RecommendationSchema =  new mongoose.Schema({
     score: {
         type:Number,
         default: 0 ,
-        required:[true,"Debes ingresar una evaluación"]
+        required:[true,"Debes ingresar una evaluación"],
     },
     votes:{
         type:Number,

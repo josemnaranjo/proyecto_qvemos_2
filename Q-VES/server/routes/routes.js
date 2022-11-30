@@ -18,5 +18,5 @@ module.exports = app =>{
     app.get('/api/finalists-collection/:id',authenticate,RecommendationController.getFinalists);
     app.post('/api/add-vote/:id',authenticate,RecommendationController.addVoteToRecommendation);
     app.get('/api/get-winner',authenticate,RecommendationController.getWinner);
-
+    app.post('/api/score-winner/:id',authenticate,RecommendationController.addScore);
 }
