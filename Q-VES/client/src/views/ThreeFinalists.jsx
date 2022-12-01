@@ -1,23 +1,33 @@
 import React,{useState,useEffect} from 'react';
-import { useParams } from 'react-router-dom';
-import { getThreeFinalists } from '../services/recommendations.services';
+import { useParams, useNavigate } from 'react-router-dom';
+import { getThreeFinalists, addVote } from '../services/recommendations.services';
 import Navbar from '../components/Navbar';
 
 const ThreeFinalists = () => {
     const {id} = useParams();
     const [finalists,setFinalists] = useState([]);
-    const [nextPhase,setNextPahse] = useState(false)
+    const [nextPhase,setNextPahse] = useState(false);
+    const navigate = useNavigate();
 
     const getFinalistsFromService = async () =>{
         const result = await getThreeFinalists(id);
-        setFinalists(result.data)
+        console.log(result.data);
+        setFinalists(result.data);
     };
 
     useEffect(() => {
         getFinalistsFromService();
     }, []);
 
-    
+    const addVoteFromService = async(idRec) =>{
+        // console.log(idRec)
+        await addVote(id,{idRec:idRec});
+        // setNextPahse(true);
+    };
+
+    const toWinnerPage = () =>{
+        navigate('/ganador');
+    }
 
     return (
         <div>

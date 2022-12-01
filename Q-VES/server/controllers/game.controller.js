@@ -1,7 +1,8 @@
-const { Types } = require('mongoose');
 const {Game} = require('../models/game.model');
 const {Recommendation} = require('../models/recommendation.model');
 const {User} = require('../models/user.model');
+const shuffle = require('lodash.shuffle');
+
 
 
 module.exports.createNewGame = async (req,res) => {
@@ -57,9 +58,10 @@ module.exports.getThreeFinalists = async (req,res) => {
         const game = await Game.findById(id);
         const finalistsArray = game.movies;
 
-        const finalists = finalistsArray.sort(()=> Math.random()- Math.random()).slice(0,3);
+        const finalists = shuffle(finalistsArray).slice(0,3);
 
         res.json(finalists)
+
     }catch(err){
         res.status(500).json({
             message: "No hemos podido crear a los semifinalistas",
