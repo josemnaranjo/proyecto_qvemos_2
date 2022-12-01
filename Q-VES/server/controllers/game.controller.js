@@ -130,4 +130,20 @@ module.exports.getWinner = async(req,res) =>{
         });
 
     }
+};
+
+module.exports.deleteGame = async (req,res) => {
+    try{
+        const {id} = req.params;
+        await Game.findByIdAndRemove(id);
+        res.json({ 
+            message: 'Se ha eliminado paquete exitosamente el juego'
+        })
+
+    }catch(err){
+        res.status(500).json({ 
+            message: 'Ups no hemos podido borrar el juego',
+            err
+        })
+    }
 }
