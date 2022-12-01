@@ -27,4 +27,5 @@ module.exports = app =>{
 
     app.post('/api/create-new-game',authenticate,GameController.createNewGame);
     app.post('/api/recommendations/:id',authenticate,GameController.addRecommendation);
+    app.get('/api/finalists/:id',authenticate,GameController.getThreeFinalists);
 }

@@ -1,3 +1,4 @@
+const { Types } = require('mongoose');
 const {Game} = require('../models/game.model');
 const {Recommendation} = require('../models/recommendation.model');
 const {User} = require('../models/user.model');
@@ -44,6 +45,24 @@ module.exports.addRecommendation = async (req,res) => {
     }catch(err){
         res.status(500).json({
             message: "No hemos podido crear la colección",
+            err
+        })
+    }
+}; 
+
+module.exports.getThreeFinalists = async (req,res) => {
+    try{
+        const collection = req.params;
+        const id = collection.id
+        const game = await Game.findById(id);
+        const finalistsArray = game.movies;
+
+        const finalists = finalistsArray.sort(()=> Math.random()- Math.random()).slice(0,3);
+
+        res.json(finalists)
+    }catch(err){
+        res.status(500).json({
+            message: "No hemos podido crear a los semifinalistas",
             err
         })
     }
