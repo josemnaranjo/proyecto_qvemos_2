@@ -25,6 +25,10 @@ const Home = () => {
         navigate(`/recommendations/${id}`)
     }
 
+    const removeGame = (id) =>{
+        setGames(games.filter(game => game._id !== id));
+    }
+
 
     useEffect(() => {
         getThreeBestMoviesFromService();
@@ -65,7 +69,12 @@ const Home = () => {
                         {games?.map((game,i)=>(
                             <tr key={i}>
                                 <td>{game.name}</td>
-                                <td><button className='btn btn-primary' onClick={()=>toGame(game._id)}>unirse al juego</button></td>
+                                <td>
+                                    <button className='btn btn-primary' onClick={()=>toGame(game._id)}>unirse al juego
+                                    </button>
+                                    <button className='btn btn-danger' onClick={()=>removeGame(game._id)}>finalizar juego
+                                    </button>
+                                </td>
                             </tr>
                         ))}
                     </tbody>
