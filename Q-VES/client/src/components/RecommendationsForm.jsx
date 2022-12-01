@@ -44,7 +44,7 @@ const RecommendationsForm = (props) => {
                             <div className='col-4'>
                                 <div className='form-group'>
                                     <label htmlFor="genre" className='mb-2'>Genero:</label>
-                                    <Field id="genre" type="genre" name="genre" className="form-control" />
+                                    <Field id="genre" type="text" name="genre" className="form-control" />
                                     {errors.genre && touched.genre ? (<p>{errors.genre}</p>) : null}
                                 </div>
                             </div>
