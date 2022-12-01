@@ -26,7 +26,7 @@ const ThreeFinalists = () => {
     };
 
     const toWinnerPage = () =>{
-        navigate('/winner');
+        navigate(`/winner/${id}`);
     }
 
     return (

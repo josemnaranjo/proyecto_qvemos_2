@@ -1,5 +1,5 @@
 import React,{useState, useEffect} from 'react';
-import {useNavigate} from 'react-router-dom';
+import {useNavigate,useParams} from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import { getWinner } from '../services/recommendations.services';
 
@@ -8,14 +8,15 @@ const Winner = () => {
 
     const [winnerTitle,setWinnerTitle]=useState();
     const [winnerId,setWinnerId] = useState();
+    const {id} =useParams()
     const navigate = useNavigate();
 
 
     const getWinnerFromService = async () =>{
-        const winnerArray = await getWinner();
-        const winner = winnerArray.data[0].movies.title;
-        const winnerId = winnerArray.data[0].movies._id;
-        setWinnerTitle(winner);
+        const winner = await getWinner(id);
+        const winnerTitle = winner.data.title ;
+        const winnerId = winner.data._id;
+        setWinnerTitle(winnerTitle);
         setWinnerId(winnerId);
     };
 
