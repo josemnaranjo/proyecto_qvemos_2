@@ -66,4 +66,30 @@ module.exports.getThreeFinalists = async (req,res) => {
             err
         })
     }
+};
+
+module.exports.addVote = async (req,res) =>{
+    try{
+        const {id} = req.params;
+        const {idRec} = req.body;
+        
+        const result = await Recommendation.findByIdAndUpdate(idRec,{
+            $inc:{
+                votes:1
+            }
+        },{new:true});
+
+        const resultl2 = await Game.findByIdAndUpdate(id,{
+            $push:{
+                movies:result
+            }
+        },{new:true})
+
+        res.json({result, resultl2});
+    }catch(err){
+        res.status(500).json({
+            message: "No hemos podido crear a los semifinalistas",
+            err
+        })
+    }
 }

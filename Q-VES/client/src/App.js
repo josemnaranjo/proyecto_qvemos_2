@@ -9,7 +9,8 @@ import Register from './views/Register';
 import Login from './views/Login';
 import Evaluation from './views/Evaluation';
 import NewGame from './views/NewGame';
-import Recommendations from './views/Recommendations.jsx'
+import Recommendations from './views/Recommendations.jsx';
+import ThreeFinalists from './views/ThreeFinalists';
 import {UserProvider} from './contexts/userContext';
 
 
@@ -32,8 +33,7 @@ function App() {
           <Route path="/evaluation/:id" element={<Evaluation />} />
           <Route path="/new-game" element={<NewGame />} />
           <Route path="/recommendations/:id" element={<Recommendations />} />
-
-
+          <Route path="/finalists/:id" element={<ThreeFinalists />} />
         </Routes>
       </UserProvider>
     </div>

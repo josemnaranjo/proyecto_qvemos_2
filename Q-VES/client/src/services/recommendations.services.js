@@ -5,8 +5,8 @@ export const createRecommendations = async (recommendations,id) => await axios.p
 
 export const createFinalistsCollection = async () => await axios.get(`http://localhost:8000/api/new-finalists-collection`);
 
-export const getThreeFinalists = async(id) => 
-    await axios.get(`http://localhost:8000/api/finals/${id}`);
+// export const getThreeFinalists = async(id) => 
+//     await axios.get(`http://localhost:8000/api/finals/${id}`);
 
 export const getFinalists = async(id) => 
     await axios.get(`http://localhost:8000/api/finalists-collection/${id}`);
@@ -27,3 +27,5 @@ export const getThreeBestMovies = async () => await axios.get('http://localhost:
 export const newGame = async (values) => await axios.post('http://localhost:8000/api/create-new-game',values);
 
 export const addRecommendationsToGame = async (id,values) => await axios.post(`http://localhost:8000/api/recommendations/${id}`,values);
+
+export const getThreeFinalists = async (id) => await axios.get(`http://localhost:8000/api/finalists/${id}`);
