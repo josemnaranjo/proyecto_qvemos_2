@@ -94,4 +94,22 @@ module.exports.addVote = async (req,res) =>{
             err
         })
     }
+};
+
+
+module.exports.getWinner = async(req,res) =>{
+    try{
+        const finalistsOrdered= await Game.aggregate([
+           {$unwind: "$movies"},
+           {$sort:{"movies.votes":-1}}
+        ]);
+        res.json(finalistsOrdered)
+
+    }catch(err){
+        res.status(500).json({
+            message: "No hemos podido obtener el orden las películas",
+            err
+        });
+
+    }
 }

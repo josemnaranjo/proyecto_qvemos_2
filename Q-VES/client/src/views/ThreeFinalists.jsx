@@ -22,11 +22,11 @@ const ThreeFinalists = () => {
     const addVoteFromService = async(idRec) =>{
         // console.log(idRec)
         await addVote(id,{idRec:idRec});
-        // setNextPahse(true);
+        setNextPahse(true);
     };
 
     const toWinnerPage = () =>{
-        navigate('/ganador');
+        navigate('/winner');
     }
 
     return (
