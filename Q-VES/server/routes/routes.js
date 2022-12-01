@@ -14,18 +14,19 @@ module.exports = app =>{
 
     //QVEN
     app.post('/api/new-recommendation/:id',authenticate,RecommendationController.addRecommendation);
-    app.get('/api/new-finalists-collection',authenticate,RecommendationController.createFinalistsCollection);
-    app.get('/api/finals/:id',authenticate,RecommendationController.getThreeFinalists);
-    app.get('/api/finalists-collection/:id',authenticate,RecommendationController.getFinalists);
-    app.post('/api/add-vote/:id',authenticate,RecommendationController.addVoteToRecommendation);
-    app.get('/api/get-winner',authenticate,RecommendationController.getWinner);
-    app.post('/api/score-winner/:id',authenticate,RecommendationController.addScore);
-    app.delete('/api/delete-collection', authenticate,RecommendationController.deleteThreeCollection);
+    // app.get('/api/new-finalists-collection',authenticate,RecommendationController.createFinalistsCollection);
+    // app.get('/api/finals/:id',authenticate,RecommendationController.getThreeFinalists);
+    // app.get('/api/finalists-collection/:id',authenticate,RecommendationController.getFinalists);
+    // app.post('/api/add-vote/:id',authenticate,RecommendationController.addVoteToRecommendation);
+    // app.get('/api/get-winner',authenticate,RecommendationController.getWinner);
+    // app.post('/api/score-winner/:id',authenticate,RecommendationController.addScore);
+    // app.delete('/api/delete-collection', authenticate,RecommendationController.deleteThreeCollection);
     app.get('/api/best-scored-movies',RecommendationController.getMoviesWithBestScores);
 
     //NUEVO TIPO DE JUEGO
 
     app.post('/api/create-new-game',authenticate,GameController.createNewGame);
+    app.post('/api/edit-game-name/:id',authenticate,GameController.editGameName);
     app.get('/api/all-games',GameController.getGames);
     app.post('/api/recommendations/:id',authenticate,GameController.addRecommendation);
     app.get('/api/finalists/:id',authenticate,GameController.getThreeFinalists);

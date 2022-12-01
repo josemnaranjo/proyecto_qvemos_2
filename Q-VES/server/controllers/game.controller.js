@@ -146,4 +146,21 @@ module.exports.deleteGame = async (req,res) => {
             err
         })
     }
+};
+
+module.exports.editGameName = async (req,res) => {
+    try{
+        const {id} = req.params;
+        const {name} = req.body;
+        const result = Game.findByIdAndUpdate(id,{
+            name:name
+        },{new:true});
+
+        res.json(result);
+    }catch(err){
+        res.status(500).json({ 
+            message: 'Ups no hemos podido actualizar el nombre del juego',
+            err
+        })
+    }
 }
