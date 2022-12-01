@@ -5,6 +5,21 @@ const shuffle = require('lodash.shuffle');
 
 
 
+
+module.exports.getGames = async (req,res) => {
+    try{
+        const games =  await Game.find();
+        res.json(games)
+
+    }catch(err){
+        res.status(500).json({
+            message: "No hemos podido obtener el juego",
+            err
+        })
+    }
+}
+
+
 module.exports.createNewGame = async (req,res) => {
     try{
         const {name} =req.body;

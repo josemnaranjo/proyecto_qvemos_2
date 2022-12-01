@@ -26,6 +26,7 @@ module.exports = app =>{
     //NUEVO TIPO DE JUEGO
 
     app.post('/api/create-new-game',authenticate,GameController.createNewGame);
+    app.get('/api/all-games',GameController.getGames);
     app.post('/api/recommendations/:id',authenticate,GameController.addRecommendation);
     app.get('/api/finalists/:id',authenticate,GameController.getThreeFinalists);
     app.post('/api/finalists/:id',authenticate,GameController.addVote);

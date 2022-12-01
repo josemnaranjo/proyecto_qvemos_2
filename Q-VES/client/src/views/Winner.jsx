@@ -28,8 +28,6 @@ const Winner = () => {
         getWinnerFromService();
     }, []);
 
-
-
     return (
         <div>
             <Navbar />
