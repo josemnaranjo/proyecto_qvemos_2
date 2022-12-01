@@ -37,3 +37,5 @@ export const getWinner = async(id) => await axios.get(`http://localhost:8000/api
 export const getAllGames = async () => await axios.get('http://localhost:8000/api/all-games');
 
 export const deleteGame = async (id) => await axios.delete(`http://localhost:8000/api/delete-game/${id}`);
+
+export const editGameName = async (id,values) => await axios.post(`http://localhost:8000/api/edit-game-name/${id}`,values);

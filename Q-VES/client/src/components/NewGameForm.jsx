@@ -7,7 +7,7 @@ const NewGameForm = (props) => {
 
     const valSchema = Yup.object().shape({
         name: Yup.string()
-        .min(1,"Titulo muy corto")
+        .min(3,"Titulo muy corto")
         .required("Por favor ingresa el nombre de la sala"),
     })
     return (
