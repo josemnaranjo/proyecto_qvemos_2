@@ -3,7 +3,7 @@ import {Formik,Field,Form} from 'formik';
 import * as Yup from 'yup'
 
 const RecommendationsForm = (props) => {
-    const{title, genre, onSubmitProp}=props;
+    const{title, genre,userId, onSubmitProp}=props;
 
     const valSchema = Yup.object().shape({
 
@@ -23,6 +23,7 @@ const RecommendationsForm = (props) => {
                 initialValues={{
                     title: title,
                     genre: genre,
+                    userId: userId,
                 }}
                 validationSchema={valSchema}
                 onSubmit={(values) => onSubmitProp(values)}

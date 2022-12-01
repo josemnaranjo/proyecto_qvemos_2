@@ -31,7 +31,7 @@ function App() {
           <Route path="/ganador" element={<ResultadoFinal />} />
           <Route path="/evaluation/:id" element={<Evaluation />} />
           <Route path="/new-game" element={<NewGame />} />
-          <Route path="/recommmendations/:id" element={<Recommendations />} />
+          <Route path="/recommendations/:id" element={<Recommendations />} />
 
 
         </Routes>

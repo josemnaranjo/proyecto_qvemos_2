@@ -2,7 +2,6 @@ import React from 'react';
 import {useUser} from '../contexts/userContext';
 import { logout } from '../services/user.services';
 import {useNavigate} from 'react-router-dom';
-import { deleteThreeCollection } from '../services/recommendations.services';
 
 const Navbar = () => {
     const {user,setUser} = useUser();
@@ -23,9 +22,7 @@ const Navbar = () => {
     };
 
     const toNewGame = async()=>{
-        console.log(user);
-        await deleteThreeCollection();
-        navigate(`/inicio-del-juego/${user._id}`)
+        navigate('/new-game')
     };
 
     return (
