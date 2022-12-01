@@ -61,7 +61,7 @@ const Home = () => {
                 <table className='table table-striped table-hover table-bordered table-sm'>
                     <thead>
                         <tr>
-                            <th scope="col">Titulo</th>
+                            <th scope="col">Nombre de la sala</th>
                             <th scope="col">Acciones</th>
                         </tr>
                     </thead>
@@ -69,7 +69,7 @@ const Home = () => {
                         {games?.map((game,i)=>(
                             <tr key={i}>
                                 <td>{game.name}</td>
-                                <td>
+                                <td className='d-flex justify-content-center'>
                                     <button className='btn btn-primary' onClick={()=>toGame(game._id)}>unirse al juego
                                     </button>
                                     <button className='btn btn-danger' onClick={()=>removeGame(game._id)}>finalizar juego

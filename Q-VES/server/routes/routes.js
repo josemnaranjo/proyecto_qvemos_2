@@ -30,5 +30,5 @@ module.exports = app =>{
     app.post('/api/recommendations/:id',authenticate,GameController.addRecommendation);
     app.get('/api/finalists/:id',authenticate,GameController.getThreeFinalists);
     app.post('/api/finalists/:id',authenticate,GameController.addVote);
-    app.get('/api/winner',authenticate,GameController.getWinner);
+    app.get('/api/winner/:id',authenticate,GameController.getWinner);
 }

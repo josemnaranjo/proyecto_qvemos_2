@@ -114,11 +114,14 @@ module.exports.addVote = async (req,res) =>{
 
 module.exports.getWinner = async(req,res) =>{
     try{
-        const finalistsOrdered= await Game.aggregate([
-           {$unwind: "$movies"},
-           {$sort:{"movies.votes":-1}}
-        ]);
-        res.json(finalistsOrdered)
+        const {id} = req.params
+        const result = await Game.findById(id);
+        const moviesArray = result.movies;
+
+        const arraySorted = moviesArray.sort((a,b)=> {
+            return b.votes -a.votes
+        })
+        res.json(arraySorted[0])
 
     }catch(err){
         res.status(500).json({
