@@ -8,6 +8,7 @@ import NewGame from './views/NewGame';
 import Recommendations from './views/Recommendations.jsx';
 import ThreeFinalists from './views/ThreeFinalists';
 import Winner from './views/Winner';
+import EditGameName from './views/EditGameName';
 import {UserProvider} from './contexts/userContext';
 
 
@@ -27,6 +28,7 @@ function App() {
           <Route path="/finalists/:id" element={<ThreeFinalists />} />
           <Route path="/winner/:id" element={<Winner />} />
           <Route path="/evaluation/:id" element={<Evaluation />} />
+          <Route path="/edit-game-name/:id" element={<EditGameName />} />
         </Routes>
       </UserProvider>
     </div>

@@ -32,6 +32,10 @@ const Home = () => {
         }catch(err){
             console.log(err)
         }
+    };
+
+    const toEditName = (id) => {
+        navigate(`/edit-game-name/${id}`)
     }
 
 
@@ -78,6 +82,8 @@ const Home = () => {
                                     <button className='btn btn-primary' onClick={()=>toGame(game._id)}>unirse al juego
                                     </button>
                                     <button className='btn btn-danger' onClick={()=>removeGame(game._id)}>finalizar juego
+                                    </button>
+                                    <button className='btn btn-secondary' onClick={()=>toEditName(game._id)}>editar nombre
                                     </button>
                                 </td>
                             </tr>
