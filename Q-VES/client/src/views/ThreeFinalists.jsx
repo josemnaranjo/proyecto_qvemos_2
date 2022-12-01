@@ -11,7 +11,6 @@ const ThreeFinalists = () => {
 
     const getFinalistsFromService = async () =>{
         const result = await getThreeFinalists(id);
-        console.log(result.data);
         setFinalists(result.data);
     };
 
@@ -20,7 +19,6 @@ const ThreeFinalists = () => {
     }, []);
 
     const addVoteFromService = async(idRec) =>{
-        // console.log(idRec)
         await addVote(id,{idRec:idRec});
         setNextPahse(true);
     };
