@@ -36,7 +36,7 @@ const EvaluationForm = (props) => {
                             {errors.score && touched.score ? <p>{errors.score}</p>:null}
                         </div>
                     </div>
-                    <button className='btn btn-dark mt-3' type='submit' disabled={Object.values(errors).length>0 || Object.values(touched).length===0}>Enviar evaluacion</button>
+                    <button className='btn btn-outline-dark mt-3' type='submit' disabled={Object.values(errors).length>0 || Object.values(touched).length===0}>Enviar evaluacion</button>
                 </Form>
             )}
         </Formik>

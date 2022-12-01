@@ -38,7 +38,7 @@ const ThreeFinalists = () => {
                     <button className='btn btn-outline-dark btn-sm' onClick={()=>addVoteFromService(movie._id)}>Votar</button>
                 </div>
             ))}
-            {nextPhase ? <button className='btn btn-success' onClick={toWinnerPage}>Ver ganador</button>: null}
+            {nextPhase ? <button className='btn btn-outline-dark m-3' onClick={toWinnerPage}>Ver ganador</button>: null}
             </div>
 
             

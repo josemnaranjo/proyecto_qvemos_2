@@ -22,10 +22,12 @@ const Recommendations = () => {
     return (
         <div>
             <Navbar/>
-            <h1>Ingresa tu recomendacion</h1>
-            <RecommendationsForm userId={user._id} onSubmitProp={addRecommendationFromService} />
-            <RecommendationsForm userId={user._id} onSubmitProp={addRecommendationFromService} />
-            <button onClick={toThreeFinalists}>Siguiente fase</button>
+            <div className='container border rounded'>
+                <h1 className='m-3'>ingresa tus recomendaciones</h1>
+                <RecommendationsForm userId={user._id} onSubmitProp={addRecommendationFromService} />
+                <RecommendationsForm userId={user._id} onSubmitProp={addRecommendationFromService} />
+                <button className='btn btn-outline-dark m-3' onClick={toThreeFinalists}>Siguiente fase</button>
+            </div>
         </div>
     );
 }

@@ -23,10 +23,10 @@ const NewGame = () => {
     return (
         <div>
             <Navbar/>
-            <div className='container'>
+            <div className='container border rounded'>
                 <h1>Crea una nuevo juego</h1>
                 <NewGameForm onSubmitProp={createNewGameFromService} />
-                <button className='btn btn-outline-info m-3' disabled={nextPhase} onClick={goToRecommendations}>Siguiente fase</button>
+                <button className='btn btn-outline-dark m-3' disabled={nextPhase} onClick={goToRecommendations}>Siguiente fase</button>
             </div>
         </div>
     );

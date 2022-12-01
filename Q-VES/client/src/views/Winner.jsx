@@ -32,11 +32,12 @@ const Winner = () => {
     return (
         <div>
             <Navbar />
-            <h1>¡El ganador es!</h1>
-            {winnerTitle ? <div>
-                <p>{winnerTitle}</p>
-                <button className='btn btn-primary' onClick={toEvaluation}>Evaluación</button>
-                </div> : null}
+            <h1 className='m-3'>¡El ganador es!</h1>
+            {winnerTitle ? 
+            <div className='container border rounded'>
+                    <h1>{winnerTitle}</h1>
+                    <button className='btn btn-outline-dark m-3' onClick={toEvaluation}>Evaluación</button>
+            </div> : null}
             
         </div>
     );
