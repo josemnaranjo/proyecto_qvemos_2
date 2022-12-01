@@ -34,4 +34,4 @@ export const addVote = async(id,idRec) => await axios.post(`http://localhost:800
 
 export const getWinner = async(id) => await axios.get(`http://localhost:8000/api/winner/${id}`);
 
-export const getAllGames = async () => await axios.get('http://localhost:8000/api/get-games') 
+export const getAllGames = async () => await axios.get('http://localhost:8000/api/all-games') 

@@ -22,7 +22,7 @@ const Winner = () => {
 
 
     const toEvaluation = () =>{
-        navigate(`/evaluation/${winnerId}`)
+        navigate(`/evaluation/${id}`)
     }
 
     useEffect(() => {
@@ -35,7 +35,7 @@ const Winner = () => {
             <h1>¡El ganador es!</h1>
             {winnerTitle ? <div>
                 <p>{winnerTitle}</p>
-                <button className='btn' onClick={toEvaluation}>Evaluación</button>
+                <button className='btn btn-primary' onClick={toEvaluation}>Evaluación</button>
                 </div> : null}
             
         </div>
