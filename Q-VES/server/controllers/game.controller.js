@@ -149,10 +149,7 @@ module.exports.editGameName = async (req,res) => {
     try{
         const {id} = req.params;
         const {name} = req.body;
-        const result = Game.findByIdAndUpdate(id,{
-            name:name
-        },{new:true});
-
+        const result = await Game.findByIdAndUpdate(id,req.body,{new:true});
         res.json(result);
     }catch(err){
         res.status(500).json({ 
