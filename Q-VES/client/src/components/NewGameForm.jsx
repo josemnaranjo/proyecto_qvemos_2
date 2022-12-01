@@ -32,7 +32,7 @@ const NewGameForm = (props) => {
                             </div>
 
                             <div className='col-4 m-2 d-flex justify-content-center'>
-                                <button className=' btn btn-dark btn-sm mb-3' type="submit" disabled={Object.values(errors).length>0 || Object.values(touched).length===0}>
+                                <button className=' btn btn-dark btn-sm' type="submit" disabled={Object.values(errors).length>0 || Object.values(touched).length===0}>
                                     Crear nuevo juego
                                 </button>
                             </div>
