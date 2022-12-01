@@ -3,9 +3,6 @@ const {Recommendation} = require('../models/recommendation.model');
 const {User} = require('../models/user.model');
 const shuffle = require('lodash.shuffle');
 
-
-
-
 module.exports.getGames = async (req,res) => {
     try{
         const games =  await Game.find();
