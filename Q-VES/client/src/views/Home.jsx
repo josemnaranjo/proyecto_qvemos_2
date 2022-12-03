@@ -47,31 +47,31 @@ const Home = () => {
     return (
         <div>
             <Navbar/>
-            <h1 className='m-4'>Top 3 mejores recomendaciones</h1>
             <div className='container'>
-                <table className='table table-striped table-hover table-bordered table-dark table-sm'>
-                    <thead>
+            <h1 className='display-5 m-4'>Top 3 mejores recomendaciones</h1>
+                <table className='table table-striped table-hover table-bordered table-sm'>
+                    <thead className='table-dark'>
                         <tr>
-                            <th scope="col">Titulo</th>
-                            <th scope="col">Puntuacion</th>
+                            <th scope="col" className='lead'>Titulo</th>
+                            <th scope="col" className='lead'>Puntuacion</th>
                         </tr>
                     </thead>
                     <tbody>
                         {bestMovies?.map((movie,i)=>(
                             <tr key={i}>
-                                <td>{movie.title}</td>
-                                <td>{movie.score}</td>
+                                <td className='m-3'>{movie.title}</td>
+                                <td className='m-3'>{movie.score}</td>
                             </tr>
                         ))}
                     </tbody>
                 </table>
 
-                <h1 className='m-4'>Sala de juegos activas</h1>
-                <table className='table table-striped table-hover table-bordered table-dark table-sm'>
-                    <thead>
+                <h1 className='display-5 m-4'>Sala de juegos activas</h1>
+                <table className='table table-striped table-hover table-bordered table-sm'>
+                    <thead className='table-dark'>
                         <tr>
-                            <th scope="col">Salas</th>
-                            <th scope="col">Acciones</th>
+                            <th scope="col" className='lead'>Salas</th>
+                            <th scope="col" className='lead'>Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -79,12 +79,14 @@ const Home = () => {
                             <tr key={i}>
                                 <td>{game.name}</td>
                                 <td className='d-flex justify-content-center'>
-                                    <button className='btn btn-primary' onClick={()=>toGame(game._id)}>unirse al juego
-                                    </button>
-                                    <button className='btn btn-danger' onClick={()=>removeGame(game._id)}>finalizar juego
-                                    </button>
-                                    <button className='btn btn-secondary' onClick={()=>toEditName(game._id)}>editar nombre
-                                    </button>
+                                    <div className='btn-group' role="group">
+                                        <button className='btn btn-outline-success' onClick={()=>toGame(game._id)}>unirse
+                                        </button>
+                                        <button className='btn btn-outline-dark' onClick={()=>toEditName(game._id)}>editar nombre
+                                        </button>
+                                        <button className='btn btn-outline-danger' onClick={()=>removeGame(game._id)}>finalizar
+                                        </button>
+                                    </div>
                                 </td>
                             </tr>
                         ))}

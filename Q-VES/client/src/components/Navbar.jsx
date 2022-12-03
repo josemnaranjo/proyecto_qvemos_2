@@ -33,11 +33,6 @@ const Navbar = () => {
                 </a>
                 <div className="navbar" id="navbarNav">
                     <ul className="navbar-nav">
-                        {/* <li className="nav-item active">
-                            <a className="nav-link" href="/home">
-                                Home
-                            </a>
-                        </li> */}
                         <li className="nav-item">
                             {user && 
                             <button className='btn btn-outline-light btn-sm' onClick={toNewGame}>
