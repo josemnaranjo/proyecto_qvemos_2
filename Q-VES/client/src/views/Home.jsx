@@ -49,7 +49,7 @@ const Home = () => {
             <Navbar/>
             <h1 className='m-4'>Top 3 mejores recomendaciones</h1>
             <div className='container'>
-                <table className='table table-striped table-hover table-bordered table-sm'>
+                <table className='table table-striped table-hover table-bordered table-dark table-sm'>
                     <thead>
                         <tr>
                             <th scope="col">Titulo</th>
@@ -67,10 +67,10 @@ const Home = () => {
                 </table>
 
                 <h1 className='m-4'>Sala de juegos activas</h1>
-                <table className='table table-striped table-hover table-bordered table-sm'>
+                <table className='table table-striped table-hover table-bordered table-dark table-sm'>
                     <thead>
                         <tr>
-                            <th scope="col">Nombre de la sala</th>
+                            <th scope="col">Salas</th>
                             <th scope="col">Acciones</th>
                         </tr>
                     </thead>
