@@ -69,13 +69,19 @@ const Home = () => {
                             {games?.map((game,i)=>(
                                 <li key={i} className='list-group-item d-flex justify-content-between align-items-center'>
                                     {game.name}
-                                    <div className='btn-group shadow rounded' role="group">
-                                        <button className='btn btn-outline-success' onClick={()=>toGame(game._id)}>unirse
-                                        </button>
-                                        <button className='btn btn-outline-dark' onClick={()=>toEditName(game._id)}>editar nombre
-                                        </button>
-                                        <button className='btn btn-outline-danger' onClick={()=>removeGame(game._id)}>finalizar
-                                        </button>
+                                    <div className='dropdown'>
+                                        <button className='btn btn-secondary dropdown-toggle'type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">acciones</button>
+                                        <ul className='dropdown-menu'aria-labelledby="dropdownMenuButton1">
+                                            <li>
+                                                <button className='dropdown-item' type='button'onClick={()=>toGame(game._id)}>unirse</button>
+                                            </li>
+                                            <li>
+                                                <button className='dropdown-item' type='button'onClick={()=>toEditName(game._id)}>editar nombre</button>
+                                            </li>
+                                            <li>
+                                                <button className='dropdown-item' type='button'onClick={()=>removeGame(game._id)}>finalizar</button>
+                                            </li>
+                                        </ul>
                                     </div>
                                 </li>
                             ))}
