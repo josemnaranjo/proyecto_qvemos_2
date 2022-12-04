@@ -47,39 +47,29 @@ const Home = () => {
     return (
         <div>
             <Navbar/>
-            <div className='container'>
-            <h1 className='display-5 m-4'>Top 3 mejores recomendaciones</h1>
-                <table className='table table-striped table-hover table-bordered table-sm'>
-                    <thead className='table-dark'>
-                        <tr>
-                            <th scope="col" className='lead'>Titulo</th>
-                            <th scope="col" className='lead'>Puntuacion</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {bestMovies?.map((movie,i)=>(
-                            <tr key={i}>
-                                <td className='m-3'>{movie.title}</td>
-                                <td className='m-3'>{movie.score}</td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
+            <div className='container d-flex'>
 
-                <h1 className='display-5 m-4'>Sala de juegos activas</h1>
-                <table className='table table-striped table-hover table-bordered table-sm'>
-                    <thead className='table-dark'>
-                        <tr>
-                            <th scope="col" className='lead'>Salas</th>
-                            <th scope="col" className='lead'>Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {games?.map((game,i)=>(
-                            <tr key={i}>
-                                <td>{game.name}</td>
-                                <td className='d-flex justify-content-center'>
-                                    <div className='btn-group' role="group">
+                <div className=' container card text-white bg-dark mt-5 shadow-lg p-3 mb-5 rounded'>
+                    <div className='card-body'>
+                        <h1 className='display-5 mt-4'>mejores recomendaciones</h1>
+                        <ul className='list-group list-group-flush mt-4'>
+                            {bestMovies?.map((movie,i)=> (
+                                <li className='list-group-item d-flex justify-content-between align-items-center'> {movie.title}
+                                <span class="badge bg-dark rounded-pill">{movie.score}</span>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
+
+                <div className='container card mt-5 shadow-lg p-3 mb-5 rounded'>
+                    <div className='card-body'>
+                        <h1 className='display-5 mt-4'>salas activas</h1>
+                        <ul className='list-group list-group-flush mt-4'>
+                            {games?.map((game,i)=>(
+                                <li key={i} className='list-group-item d-flex justify-content-between align-items-center'>
+                                    {game.name}
+                                    <div className='btn-group shadow rounded' role="group">
                                         <button className='btn btn-outline-success' onClick={()=>toGame(game._id)}>unirse
                                         </button>
                                         <button className='btn btn-outline-dark' onClick={()=>toEditName(game._id)}>editar nombre
@@ -87,12 +77,12 @@ const Home = () => {
                                         <button className='btn btn-outline-danger' onClick={()=>removeGame(game._id)}>finalizar
                                         </button>
                                     </div>
-                                </td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
-                
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
+
             </div>
         </div>
     );
