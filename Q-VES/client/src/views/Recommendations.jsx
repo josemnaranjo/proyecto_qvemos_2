@@ -14,13 +14,21 @@ const Recommendations = () => {
     const [nextPhase,setNextPhase] = useState(0);
 
     const addRecommendationFromService = async (values) =>{
-        await addRecommendationsToGame(id,values);
-        Swal.fire({
-            text:"Tu recomendacion ha sido enviada con éxito",
-            icon:"success",
-            button:"aceptar"
-        })
-        setNextPhase(nextPhase+1);
+        try{
+            await addRecommendationsToGame(id,values);
+            Swal.fire({
+                text:"Tu recomendacion ha sido enviada con éxito",
+                icon:"success",
+                button:"aceptar"
+            })
+            setNextPhase(nextPhase+1);
+        }catch(err){
+            console.log(err);
+            Swal.fire({
+                text:"Ha ocurrido un error al enviar tu recomendacion",
+                icon:"error"
+            })
+        }
     };
 
     const toThreeFinalists = () => {
@@ -31,7 +39,7 @@ const Recommendations = () => {
     return (
         <div>
             <Navbar/>
-            <div className='container card mt-5 shadow-lg p-3 mb-5 rounded'>
+            <div className='container card w-50 mt-5 shadow-lg p-3 mb-5 rounded'>
                 <h1 className=' display-5 mt-4'>ingresa tus recomendaciones</h1>
                 <div className='card-body'>
                     <RecommendationsForm userId={user._id} onSubmitProp={addRecommendationFromService} />

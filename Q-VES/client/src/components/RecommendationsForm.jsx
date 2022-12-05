@@ -9,11 +9,11 @@ const RecommendationsForm = (props) => {
 
         title: Yup.string()
         .min(1,"Titulo muy corto")
-        .required("Por favor ingresa tu recomendación"),
+        .required("campo obligatorio"),
 
         genre: Yup.string()
         .min(1,"Genero muy breve")
-        .required("Por favor ingresa el género de tu recomendacion"),
+        .required("campo obligatorio"),
 
 
     })
@@ -34,15 +34,17 @@ const RecommendationsForm = (props) => {
                         <div className='row d-flex align-items-center justify-content-center shadow-sm p-3 mb-5 border rounded'>
 
                             <div className='col-4'>
-                                <div className='form-group mt-4'>
+                                <div className='form-floating mt-4'>
                                     <Field id="title" placeholder="título de la película" type="text" name="title" className="form-control" />
+                                    <label htmlFor="title">Titulo</label>
                                     {errors.title && touched.title ? <p>{errors.title}</p> : null}
                                 </div>
                             </div>
 
                             <div className='col-4'>
-                                <div className='form-group mt-4'>
+                                <div className='form-group form-floating mt-4'>
                                     <Field id="genre" placeholder="género de la película" type="text" name="genre" className="form-control" />
+                                    <label htmlFor="genre">Genero</label>
                                     {errors.genre && touched.genre ? (<p>{errors.genre}</p>) : null}
                                 </div>
                             </div>
