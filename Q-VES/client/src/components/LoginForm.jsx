@@ -29,20 +29,26 @@ const LoginForm = (props) => {
             >
             {({errors,touched,values})=>(
                 <Form>
-                    <div className= 'container d-flex justify-content-center align-items-center p-4 border rounded'>
-                        <div className='col'>
-                            <label htmlFor='email'>Correo electrónico:</label>
-                            <Field id='email' type='text' name='email'/>
-                            {errors.email && touched.email ? <p>{errors.email}</p>:null}
-                        </div>
+                    <div className= 'container card w-75 text-white bg-dark mt-5 shadow-lg p-3 mb-5 rounded'>
+                        <div className='card-body d-flex justify-content-evenly'>
 
-                        <div className='col'>
-                            <label htmlFor='password'>Contraseña:</label>
-                            <Field id='password' type='password' name='password'/>
-                            {errors.password && touched.password ? <p>{errors.password}</p>:null}
+                            <div className='mt-3'>
+                                <label htmlFor='email'>Correo electrónico:</label>
+                                <Field id='email' type='text' name='email'/>
+                                {errors.email && touched.email ? <p>{errors.email}</p>:null}
+                            </div>
+
+                            <div className='mt-3'>
+                                <label htmlFor='password'>Contraseña:</label>
+                                <Field id='password' type='password' name='password'/>
+                                {errors.password && touched.password ? <p>{errors.password}</p>:null}
+                            </div>
+                            
+                            <div className='mt-0'>
+                                <button className='btn btn-outline-light mt-3' type='submit' disabled={Object.values(errors).length>0 || Object.values(touched).length===0}>Log in</button>
+                            </div>
                         </div>
                     </div>
-                    <button className='btn btn-dark mt-3' type='submit' disabled={Object.values(errors).length>0 || Object.values(touched).length===0}>Log in</button>
                 </Form>
             )}
         </Formik>
