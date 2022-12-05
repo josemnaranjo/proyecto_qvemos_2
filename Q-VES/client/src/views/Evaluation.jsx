@@ -33,13 +33,12 @@ const Evaluation = () => {
     return (
         <div>
             <Navbar/>
-            <h1>¿Qué te pareció la película?</h1>
-            <div>
-                {winnerTitle ? <h3>{winnerTitle}</h3>: null}
-                <EvaluationForm id={winnerId} onSubmitProp ={addScoreFromService}/>
+            <div className='container w-75 card mt-5 shadow-lg p-3 mb-5 rounded'>
+                <div>
+                    <h1 className='display-5'> ¿Qué te pareció {winnerTitle ? <>{winnerTitle}</>: null}?</h1>
+                    <EvaluationForm id={winnerId} onSubmitProp ={addScoreFromService}/>
+                </div>
             </div>
-
-            
         </div>
     );
 }

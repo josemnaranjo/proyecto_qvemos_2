@@ -26,7 +26,7 @@ const NewGameForm = (props) => {
 
                             <div className='col-4'>
                                 <div className='form-floating mt-3'>
-                                    <Field id="name" type="text" name="name" className="form-control" />
+                                    <Field id="name" type="text" name="name" className="form-control" placeholder="nombre de la sala" />
                                     <label htmlFor="name" className='mb-2'>Nombre de la sala</label>
                                     {errors.name && touched.name ? <p>{errors.name}</p> : null}
                                 </div>

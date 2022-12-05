@@ -22,21 +22,28 @@ const EvaluationForm = (props) => {
             >
             {({errors,touched})=>(
                 <Form>
-                    <div className= 'container d-flex justify-content-center align-items-center p-4 border rounded'>
+                    <div className= 'container mt-5 shadow-lg p-3 mb-5'>
 
-                        <div className='col'>
-                            <label htmlFor='score'>Evaluacion (1 a 5):</label>
-                            <Field id='score' as='select' name='score'>
-                                <option value={1}>1</option>
-                                <option value={2}>2</option>
-                                <option value={3}>3</option>
-                                <option value={4}>4</option>
-                                <option value={5}>5</option>
-                            </Field>
-                            {errors.score && touched.score ? <p>{errors.score}</p>:null}
+                        <div className='card'>
+
+                            <div className='card-body'>
+                                <Field id='score' as='select'className='form-select form-select-lg' name='score'>
+                                    <option selected>En una escala de 1 a 5</option>
+                                    <option value={1}>1</option>
+                                    <option value={2}>2</option>
+                                    <option value={3}>3</option>
+                                    <option value={4}>4</option>
+                                    <option value={5}>5</option>
+                                </Field>
+                                {errors.score && touched.score ? <p>{errors.score}</p>:null}
+                            </div>
+
+                            <div className='card-body'>
+                                <button className='btn btn-outline-dark mt-3' type='submit' disabled={Object.values(errors).length>0 || Object.values(touched).length===0}>Enviar evaluacion</button>
+                            </div>
+
                         </div>
                     </div>
-                    <button className='btn btn-outline-dark mt-3' type='submit' disabled={Object.values(errors).length>0 || Object.values(touched).length===0}>Enviar evaluacion</button>
                 </Form>
             )}
         </Formik>
