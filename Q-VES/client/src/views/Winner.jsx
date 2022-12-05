@@ -32,12 +32,12 @@ const Winner = () => {
     return (
         <div>
             <Navbar />
-            <div className='container card w-50 text-white bg-dark mt-5 shadow-lg p-3 mb-5 rounded'>
+            <div className='container card mt-5 shadow-lg p-3 mb-5 rounded'>
                 <h1>¡La película ganadora es!</h1>
                 {winnerTitle ? 
                 <div className='container card-body rounded'>
                         <h1 className='display-4'>{winnerTitle}</h1>
-                        <button className='btn btn-outline-light m-3' onClick={toEvaluation}>colocar nota</button>
+                        <button className='btn btn-outline-dark m-3' onClick={toEvaluation}>colocar nota</button>
                 </div> : null}
             </div>
             

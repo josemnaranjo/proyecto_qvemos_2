@@ -41,7 +41,7 @@ const ThreeFinalists = () => {
     return (
         <div>
             <Navbar />
-            <div className='container card mt-5 w-25 shadow-lg p-3 mb-5 rounded'>
+            <div className='container card w-75 text-white bg-dark mt-5 shadow-lg p-3 mb-5 rounded'>
                 <div className='card-body'>
                     <h1 className='display-5'>finalistas</h1>
                     <ul className='list-group list-group-flush mt-4'>
@@ -52,7 +52,7 @@ const ThreeFinalists = () => {
                             </li>
                         ))}
                     </ul>
-                    {nextPhase ? <button className='btn btn-outline-dark m-3' onClick={toWinnerPage}>Ver ganador</button>: null}
+                    {nextPhase ? <button className='btn btn-outline-light m-3' onClick={toWinnerPage}>Ver ganador</button>: null}
                 </div>
             </div>
         </div>

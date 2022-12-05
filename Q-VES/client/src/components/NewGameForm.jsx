@@ -26,14 +26,14 @@ const NewGameForm = (props) => {
 
                             <div className='col-4'>
                                 <div className='form-floating mt-3'>
-                                    <Field id="name" type="text" name="name" className="form-control" placeholder="nombre de la sala" />
+                                    <Field id="name" type="text" name="name" className="form-control text-black" placeholder="nombre de la sala" />
                                     <label htmlFor="name" className='mb-2'>Nombre de la sala</label>
                                     {errors.name && touched.name ? <p>{errors.name}</p> : null}
                                 </div>
                             </div>
 
                             <div className='col-4 m-2 d-flex justify-content-center'>
-                                <button className=' btn btn-dark btn-sm' type="submit" disabled={Object.values(errors).length>0 || Object.values(touched).length===0}>
+                                <button className=' btn btn-secondary btn-sm' type="submit" disabled={Object.values(errors).length>0 || Object.values(touched).length===0}>
                                     crear nueva sala
                                 </button>
                             </div>
