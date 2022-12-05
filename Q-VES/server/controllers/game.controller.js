@@ -1,6 +1,7 @@
 const {Game} = require('../models/game.model');
 const {Recommendation} = require('../models/recommendation.model');
 const {User} = require('../models/user.model');
+const {threeFinalists} = require('../models/threeFinalists.model');
 const shuffle = require('lodash.shuffle');
 
 module.exports.getGames = async (req,res) => {
@@ -72,7 +73,13 @@ module.exports.getThreeFinalists = async (req,res) => {
 
         const finalists = shuffle(finalistsArray).slice(0,3);
 
-        res.json(finalists)
+        // const threeF = await threeFinalists.aggregate([{
+        //     $push:{
+        //         Movies:finalists
+        //     }
+        // }])
+
+        res.json(finalists);
 
     }catch(err){
         res.status(500).json({

@@ -36,7 +36,7 @@ const Navbar = () => {
                         <li className="nav-item">
                             {user && 
                             <button className='btn btn-outline-light btn-sm' onClick={toNewGame}>
-                                Nuevo juego
+                                Crear sala
                             </button>}
                         </li>
                         <li className="nav-item">
