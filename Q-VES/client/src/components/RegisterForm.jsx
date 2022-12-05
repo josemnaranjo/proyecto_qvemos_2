@@ -33,7 +33,7 @@ const RegisterForm = (props) => {
     })
     return (
         <div>
-        <h1 className='mt-3'>Formulario de registro</h1>
+        <h1 className='display-5 mt-3'>Formulario de registro</h1>
         <Formik
             initialValues={{
                 firstName:firstName,
@@ -46,10 +46,11 @@ const RegisterForm = (props) => {
             onSubmit={values=>onSubmitProp(values)}
             enableReinitialize
             >
-            {({errors,touched,values})=>(
+            {({errors,touched})=>(
                 <Form>
-                    <div className= 'container d-flex justify-content-center align-items-center p-4 border rounded'>
-                        <div className='m-3 w-25'>
+                    <div className= 'container w-50 mt-5 shadow-lg p-5 mb-5 rounded'>
+
+                        <div className='align-self-center'>
                             <div className='row'>
                                 <label htmlFor='firstName'>Nombre:</label>
                                 <Field id='firstName' type='text' name='firstName'/>
@@ -67,9 +68,7 @@ const RegisterForm = (props) => {
                                 <Field id='email' type='text' name='email'/>
                                 {errors.email && touched.email ? <p>{errors.email}</p>:null}
                             </div>
-                        </div>
 
-                        <div className='m-3 w-25'>
                             <div className='row'>
                                 <label htmlFor='password'>Contraseña:</label>
                                 <Field id='password' type='password' name='password'/>
@@ -80,10 +79,12 @@ const RegisterForm = (props) => {
                                 <label htmlFor='confirmPassword'>Confirmar contraseña:</label>
                                 <Field id='confirmPassword' type='password' name='confirmPassword'/>
                                 {errors.confirmPassword && touched.confirmPassword ? <p>{errors.confirmPassword}</p>:null}
-                            </div>                            
+                            </div>
+                            
+                            <button className='btn btn-dark m-3' type='submit' disabled={Object.values(errors).length>0 || Object.values(touched).length===0}>Crear usuario</button>
                         </div>
+
                     </div>
-                    <button className='btn btn-dark m-3' type='submit' disabled={Object.values(errors).length>0 || Object.values(touched).length===0}>Crear usuario</button>
                 </Form>
             )}
         </Formik>
