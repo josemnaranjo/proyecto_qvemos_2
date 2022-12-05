@@ -44,7 +44,7 @@ const Recommendations = () => {
                 <div className='card-body'>
                     <RecommendationsForm userId={user._id} onSubmitProp={addRecommendationFromService} />
                     <RecommendationsForm userId={user._id} onSubmitProp={addRecommendationFromService} />
-                    <button className='btn btn-outline-dark m-3' disabled={nextPhase ===2 ? false : true} onClick={toThreeFinalists}>Siguiente fase</button>
+                    <button className='btn btn-outline-dark m-3' disabled={nextPhase === 2 ? false : true} onClick={toThreeFinalists}>Siguiente fase</button>
                 </div>
             </div>
         </div>

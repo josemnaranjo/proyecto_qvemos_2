@@ -31,7 +31,7 @@ const RecommendationsForm = (props) => {
             >
                 {({ errors, touched }) => (
                     <Form>
-                        <div className='row d-flex align-items-center justify-content-center shadow-sm p-3 mb-5 border rounded'>
+                        <div className='row d-flex align-items-center justify-content-center shadow-sm p-4 mb-5 border rounded'>
 
                             <div className='col-4'>
                                 <div className='form-floating mt-4'>
