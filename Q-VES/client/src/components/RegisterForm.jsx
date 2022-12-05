@@ -48,7 +48,7 @@ const RegisterForm = (props) => {
             >
             {({errors,touched})=>(
                 <Form>
-                    <div className= 'container w-50 mt-5 shadow-lg p-5 mb-5 rounded'>
+                    <div className= 'container w-50 mt-4 shadow-lg p-5 rounded'>
 
                         <div className='align-self-center'>
                             <div className='row'>
