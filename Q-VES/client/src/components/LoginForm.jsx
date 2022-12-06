@@ -49,9 +49,9 @@ const LoginForm = (props) => {
 
                             <div className='mt-3'>
                                 <Field id='admin' as='select' className='form-select form-select-sm' name='admin'>
-                                    <option selected>Elige si vas a ser jugador o administrador</option>
-                                    <option value={"admin"}>administrador</option>
-                                    <option value={"jugador"}>jugador</option>
+                                    <option selected>¿Administrador de la partida?</option>
+                                    <option value={"admin"}>si</option>
+                                    <option value={"jugador"}>no</option>
                                 </Field>
                             </div>
                             

@@ -35,7 +35,7 @@ const Login = () => {
     return (
         <div>
             <Navbar/>
-            <h1 className=' display-5 mt-3'>Iniciar sesion</h1>
+            <h1 className='display-5 mt-3'>Iniciar sesion</h1>
             {errors?.map((err,i)=>(<div key={i}>{err}</div>))}
             <LoginForm email="" password="" onSubmitProp={loginToWeb}/>
         </div>
