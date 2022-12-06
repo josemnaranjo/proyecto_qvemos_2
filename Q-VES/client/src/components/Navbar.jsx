@@ -2,6 +2,7 @@ import React from 'react';
 import {useUser} from '../contexts/userContext';
 import { logout } from '../services/user.services';
 import {useNavigate} from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 const Navbar = () => {
     const {user,setUser} = useUser();
@@ -35,9 +36,9 @@ const Navbar = () => {
                     <ul className="navbar-nav">
                         <li className="nav-item">
                             {user && 
-                            <button className='btn btn-outline-light btn-sm' onClick={toNewGame}>
+                            <motion.button whileHover={{rotate:[0,10,-10,0]}} className='btn btn-outline-light btn-sm' onClick={toNewGame}>
                                 Crear sala
-                            </button>}
+                            </motion.button>}
                         </li>
                         <li className="nav-item">
                             <a className="nav-link" href="/register">

@@ -41,7 +41,12 @@ const Winner = () => {
                 <h1 className='card-title'>¡La película ganadora es!</h1>
                 {winnerTitle ? 
                 <div className='container card-body rounded'>
-                        <h1 className='display-3'>{winnerTitle}</h1>
+                        <motion.h1 
+                            animate={{rotate:[0,10,-10,0]}}
+                            transition={{repeat:Infinity}}
+                            className='display-3'>
+                                {winnerTitle}
+                        </motion.h1>
                         <button className='btn btn-outline-dark m-3' onClick={toEvaluation}>colocar nota</button>
                 </div> : null}
             </motion.div>
