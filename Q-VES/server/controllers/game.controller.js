@@ -98,6 +98,19 @@ module.exports.getFinalists = async (req,res) => {
     }
 };
 
+module.exports.deleteFinalistsCollection = async (req,res) => {
+    try{
+        const result = await ThreeFinalists.deleteOne({});
+
+        res.json(result);
+    }catch(err){
+        res.status(500).json({
+            message: "No hemos podido obtener a los semifinalistas",
+            err
+        })
+    }
+}
+
 
 module.exports.addVote = async (req,res) =>{
     try{

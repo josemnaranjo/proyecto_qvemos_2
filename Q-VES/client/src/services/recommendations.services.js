@@ -3,18 +3,6 @@ axios.defaults.withCredentials = true;
 
 export const createRecommendations = async (recommendations,id) => await axios.post(`http://localhost:8000/api/new-recommendation/${id}`,recommendations);
 
-// export const createFinalistsCollection = async () => await axios.get(`http://localhost:8000/api/new-finalists-collection`);
-
-// export const getThreeFinalists = async(id) => 
-//     await axios.get(`http://localhost:8000/api/finals/${id}`);
-
-// export const getFinalists = async(id) => 
-//     await axios.get(`http://localhost:8000/api/finalists-collection/${id}`);
-
-
-// export const addVote = async(id,idTF) => await axios.post(`http://localhost:8000/api/add-vote/${id}`,idTF);
-
-// export const getWinner = async () => await axios.get('http://localhost:8000/api/get-winner');
 
 export const addScore = async (id,score) => await axios.post(`http://localhost:8000/api/score-winner/${id}`,score);
 
@@ -31,6 +19,8 @@ export const addRecommendationsToGame = async (id,values) => await axios.post(`h
 export const createThreeFinalists = async (id) => await axios.get(`http://localhost:8000/api/finalists/${id}`);
 
 export const getFinalists = async () => await axios.get('http://localhost:8000/api/finalists');
+
+export const deleteFinalistsCollection = async () => await axios.delete('http://localhost:8000/api/finalists');
 
 export const addVote = async(id,idRec) => await axios.post(`http://localhost:8000/api/finalists/${id}`,idRec);
 

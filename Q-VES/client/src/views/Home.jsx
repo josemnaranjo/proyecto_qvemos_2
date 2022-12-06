@@ -1,7 +1,7 @@
 import React, {useState,useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
-import { getThreeBestMovies, getAllGames, deleteGame } from '../services/recommendations.services';
+import { getThreeBestMovies, getAllGames, deleteGame , deleteFinalistsCollection } from '../services/recommendations.services';
 
 
 const Home = () => {
@@ -28,6 +28,7 @@ const Home = () => {
     const removeGame = async (id) =>{
         try{
             await deleteGame(id);
+            await deleteFinalistsCollection();
             setGames(games.filter(game => game._id !== id));
         }catch(err){
             console.log(err)

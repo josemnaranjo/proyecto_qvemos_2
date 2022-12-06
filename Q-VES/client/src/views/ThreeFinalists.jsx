@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, renderMatches } from 'react-router-dom';
 import {useUser} from '../contexts/userContext';
 import { getUser } from '../services/user.services';
 import { createThreeFinalists, addVote, getFinalists } from '../services/recommendations.services';
@@ -14,6 +14,8 @@ const ThreeFinalists = () => {
     const [nextPhase,setNextPahse] = useState(false);
     const navigate = useNavigate();
     const [btnActive,setBtnActive] = useState(false);
+    const [runner,setRunner] = useState(true);
+    
 
 
     const getUserFromService = async () => {
@@ -25,14 +27,25 @@ const ThreeFinalists = () => {
         getUserFromService()
     }, []);
 
+    const renderInfo = ()=>{
+        if(usuarioAdmin?.admin === "admin"){
+            return(<><button onClick={createFinalistsFromService}>Obtener finalistas</button></>)
+        }else{
+            return(<><p className='fs-2'>Espera la indiciacion del administrador para continuar</p>
+            <button onClick={getFinalistsFromService}>Obtener finalistas</button></>)
+        }
+    };
+
     const createFinalistsFromService = async () =>{
         const result = await createThreeFinalists(id);
         setFinalists(result.data.movies);
+        setRunner(false);
     };
 
     const getFinalistsFromService = async () => {
         const result = await getFinalists();
         setFinalists(result.data.movies);
+        setRunner(false);
     }
 
 
@@ -60,12 +73,7 @@ const ThreeFinalists = () => {
             <div className='container card w-75 text-white bg-dark mt-5 shadow-lg p-3 mb-5 rounded'>
                 <div className='card-body'>
                     <h1 className='display-5'>finalistas</h1>
-                    {usuarioAdmin?.admin === "admin" ? 
-                    <button onClick={createFinalistsFromService}>Obtener finalistas</button>:
-                    <div>
-                        <p className='fs-2'>Espera a la indiciacion del administrador para apretar el boton</p>
-                        <button onClick={getFinalistsFromService}>Obtener finalistas</button>
-                    </div>}
+                    {runner ? renderInfo(): null}
                     <ul className='list-group list-group-flush mt-4'>
                         {finalists?.map((movie,i)=>(
                             <li className='list-group-item d-flex justify-content-between align-items-center' key={i}>
