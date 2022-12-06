@@ -4,6 +4,7 @@ import Navbar from '../components/Navbar';
 import { addRecommendationsToGame } from '../services/recommendations.services';
 import { useParams, useNavigate } from 'react-router-dom';
 import {useUser} from '../contexts/userContext';
+import { motion } from 'framer-motion';
 import Swal from 'sweetalert2';
 
 
@@ -44,7 +45,7 @@ const Recommendations = () => {
                 <div className='card-body'>
                     <RecommendationsForm userId={user._id} onSubmitProp={addRecommendationFromService} />
                     <RecommendationsForm userId={user._id} onSubmitProp={addRecommendationFromService} />
-                    <button className='btn btn-outline-dark m-3' disabled={nextPhase === 2 ? false : true} onClick={toThreeFinalists}>siguiente</button>
+                    <motion.button whileHover={{scale:1.2}} className='btn btn-outline-dark m-3' disabled={nextPhase === 2 ? false : true} onClick={toThreeFinalists}>siguiente</motion.button>
                 </div>
             </div>
         </div>

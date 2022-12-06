@@ -47,7 +47,7 @@ const Winner = () => {
                             className='display-3'>
                                 {winnerTitle}
                         </motion.h1>
-                        <button className='btn btn-outline-dark m-3' onClick={toEvaluation}>colocar nota</button>
+                        <motion.button whileHover={{scale:1.2}} className='btn btn-outline-dark m-3' onClick={toEvaluation}>colocar nota</motion.button>
                 </div> : null}
             </motion.div>
             

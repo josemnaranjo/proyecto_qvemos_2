@@ -2,6 +2,7 @@ import React, {useState,useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import { getThreeBestMovies, getAllGames, deleteGame , deleteFinalistsCollection } from '../services/recommendations.services';
+import { motion } from 'framer-motion';
 
 
 const Home = () => {
@@ -50,20 +51,23 @@ const Home = () => {
             <Navbar/>
             <div className='container d-flex'>
 
-                <div className=' container card text-white bg-dark mt-5 shadow-lg p-3 mb-5 rounded'>
+                <motion.div whileHover={{scale:1.1}}  className=' container card text-white bg-dark mt-5 shadow-lg p-3 mb-5 rounded'>
                     <div className='card-body'>
                         <h1 className='card-title mt-4'>mejores recomendaciones</h1>
                         <ul className='list-group list-group-flush mt-4'>
                             {bestMovies?.map((movie,i)=> (
                                 <li className='list-group-item d-flex justify-content-between align-items-center'> {movie.title}
-                                <span class="badge bg-dark rounded-pill">{movie.score}</span>
+                                <span 
+                                class="badge bg-dark rounded-pill">
+                                    {movie.score}
+                                </span>
                                 </li>
                             ))}
                         </ul>
                     </div>
-                </div>
+                </motion.div>
 
-                <div className='container card mt-5 shadow-lg p-3 mb-5 rounded'>
+                <motion.div whileHover={{scale:1.1}}  className='container card mt-5 shadow-lg p-3 mb-5 rounded'>
                     <div className='card-body'>
                         <h1 className='card-title mt-4'>salas activas</h1>
                         <ul className='list-group list-group-flush mt-4'>
@@ -71,7 +75,7 @@ const Home = () => {
                                 <li key={i} className='list-group-item d-flex justify-content-between align-items-center'>
                                     {game.name}
                                     <div className='dropdown'>
-                                        <button className='btn btn-secondary dropdown-toggle'type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">acciones</button>
+                                        <button className='btn btn-dark dropdown-toggle'type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">acciones</button>
                                         <ul className='dropdown-menu'aria-labelledby="dropdownMenuButton1">
                                             <li>
                                                 <button className='dropdown-item' type='button'onClick={()=>toGame(game._id)}>unirse</button>
@@ -88,7 +92,7 @@ const Home = () => {
                             ))}
                         </ul>
                     </div>
-                </div>
+                </motion.div>
 
             </div>
         </div>

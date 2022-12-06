@@ -1,6 +1,7 @@
 import React from 'react';
 import {Formik,Field,Form} from 'formik';
 import * as Yup from 'yup';
+import { motion } from 'framer-motion';
 
 const EvaluationForm = (props) => {
     const { id, onSubmitProp} = props;
@@ -39,7 +40,7 @@ const EvaluationForm = (props) => {
                             </div>
 
                             <div className='card-body'>
-                                <button className='btn btn-outline-dark mt-3' type='submit' disabled={Object.values(errors).length>0 || Object.values(touched).length===0}>Enviar evaluacion</button>
+                                <motion.button whileHover={{scale:1.2}} className='btn btn-outline-dark mt-3' type='submit' disabled={Object.values(errors).length>0 || Object.values(touched).length===0}>Enviar evaluacion</motion.button>
                             </div>
 
                         </div>

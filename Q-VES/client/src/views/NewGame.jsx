@@ -4,6 +4,7 @@ import Navbar from '../components/Navbar';
 import NewGameForm from '../components/NewGameForm';
 import { newGame } from '../services/recommendations.services';
 import Swal from 'sweetalert2';
+import { motion } from 'framer-motion';
 
 const NewGame = () => {
     const [idGame,setIdGame] = useState();
@@ -33,7 +34,7 @@ const NewGame = () => {
                 <div className='card-body'>
                     <h1 className='card-title text-white'>NUEVA SALA</h1>
                     <NewGameForm onSubmitProp={createNewGameFromService} />
-                    <button className='btn btn-outline-light m-3' disabled={nextPhase} onClick={goToRecommendations}>siguiente</button>
+                    <motion.button whileHover={{scale:1.1}}  className='btn btn-outline-light m-3' disabled={nextPhase} onClick={goToRecommendations}>siguiente</motion.button>
                 </div>
             </div>
         </div>

@@ -4,7 +4,7 @@ import {useUser} from '../contexts/userContext';
 import { getUser } from '../services/user.services';
 import { createThreeFinalists, addVote, getFinalists } from '../services/recommendations.services';
 import Navbar from '../components/Navbar';
-import Swal from 'sweetalert2';
+import { motion } from 'framer-motion';
 
 const ThreeFinalists = () => {
     const {user} = useUser();
@@ -53,10 +53,6 @@ const ThreeFinalists = () => {
         try{
             await addVote(id,{idRec:idRec});
             setNextPahse(true);
-            Swal.fire({
-                text:"¡Gracias por votar!",
-                icon:"success"
-            })
             setBtnActive(true);
         }catch(err){
             console.log(err);
@@ -82,7 +78,7 @@ const ThreeFinalists = () => {
                             </li>
                         ))}
                     </ul>
-                    {nextPhase ? <button className='btn btn-outline-light mt-5' onClick={toWinnerPage}>Ver ganador</button>: null}
+                    {nextPhase ? <motion.button whileHover={{scale:1.2}} className='btn btn-outline-light mt-5' onClick={toWinnerPage}>Ver ganador</motion.button>: null}
                 </div>
             </div>
         </div>
