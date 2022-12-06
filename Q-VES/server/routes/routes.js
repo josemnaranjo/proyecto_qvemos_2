@@ -30,6 +30,7 @@ module.exports = app =>{
     app.get('/api/all-games',GameController.getGames);
     app.post('/api/recommendations/:id',authenticate,GameController.addRecommendation);
     app.get('/api/finalists/:id',authenticate,GameController.createThreeFinalists);
+    app.get('/api/finalists',authenticate,GameController.getFinalists);
     app.post('/api/finalists/:id',authenticate,GameController.addVote);
     app.get('/api/winner/:id',authenticate,GameController.getWinner);
     app.delete('/api/delete-game/:id',authenticate,GameController.deleteGame);

@@ -84,6 +84,21 @@ module.exports.createThreeFinalists = async (req,res) => {
     }
 };
 
+
+module.exports.getFinalists = async (req,res) => {
+    try{
+        const result = await ThreeFinalists.find({});
+
+        res.json(result[0]);
+    }catch(err){
+        res.status(500).json({
+            message: "No hemos podido obtener a los semifinalistas",
+            err
+        })
+    }
+};
+
+
 module.exports.addVote = async (req,res) =>{
     try{
         const {id} = req.params;
