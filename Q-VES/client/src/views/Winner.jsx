@@ -35,12 +35,13 @@ const Winner = () => {
             <Navbar />
             <motion.div 
                 animate={{ y:100, scale:1 }} 
-                initial={{scale:0}} 
+                initial={{scale:0}}
+                transition={{type:"tween"}}
                 className='container card mt-5 shadow-lg p-3 mb-5 rounded'>
                 <h1 className='card-title'>¡La película ganadora es!</h1>
                 {winnerTitle ? 
                 <div className='container card-body rounded'>
-                        <motion.h1 animate={{rotate:360}} className='display-3'>{winnerTitle}</motion.h1>
+                        <h1 className='display-3'>{winnerTitle}</h1>
                         <button className='btn btn-outline-dark m-3' onClick={toEvaluation}>colocar nota</button>
                 </div> : null}
             </motion.div>
