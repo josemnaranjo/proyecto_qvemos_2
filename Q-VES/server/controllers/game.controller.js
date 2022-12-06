@@ -1,7 +1,7 @@
 const {Game} = require('../models/game.model');
 const {Recommendation} = require('../models/recommendation.model');
 const {User} = require('../models/user.model');
-const {threeFinalists} = require('../models/threeFinalists.model');
+const {ThreeFinalists} = require('../models/threeFinalists.model');
 const shuffle = require('lodash.shuffle');
 
 module.exports.getGames = async (req,res) => {
@@ -64,7 +64,7 @@ module.exports.addRecommendation = async (req,res) => {
     }
 }; 
 
-module.exports.getThreeFinalists = async (req,res) => {
+module.exports.createThreeFinalists = async (req,res) => {
     try{
         const collection = req.params;
         const id = collection.id
@@ -73,14 +73,9 @@ module.exports.getThreeFinalists = async (req,res) => {
 
         const finalists = shuffle(finalistsArray).slice(0,3);
 
-        // const threeF = await threeFinalists.aggregate([{
-        //     $push:{
-        //         Movies:finalists
-        //     }
-        // }])
+        const threeFinalistsSetted = await ThreeFinalists.create({movies:finalists});
 
-        res.json(finalists);
-
+        res.json(threeFinalistsSetted);
     }catch(err){
         res.status(500).json({
             message: "No hemos podido crear a los semifinalistas",

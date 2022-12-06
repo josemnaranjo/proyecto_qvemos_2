@@ -29,7 +29,7 @@ module.exports = app =>{
     app.post('/api/edit-game-name/:id',authenticate,GameController.editGameName);
     app.get('/api/all-games',GameController.getGames);
     app.post('/api/recommendations/:id',authenticate,GameController.addRecommendation);
-    app.get('/api/finalists/:id',authenticate,GameController.getThreeFinalists);
+    app.get('/api/finalists/:id',authenticate,GameController.createThreeFinalists);
     app.post('/api/finalists/:id',authenticate,GameController.addVote);
     app.get('/api/winner/:id',authenticate,GameController.getWinner);
     app.delete('/api/delete-game/:id',authenticate,GameController.deleteGame);
