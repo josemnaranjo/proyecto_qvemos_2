@@ -31,7 +31,7 @@ const NewGame = () => {
             <Navbar/>
             <div className='container card w-75 bg-dark mt-5 shadow-lg p-3 mb-5 rounded'>
                 <div className='card-body'>
-                    <h1 className='display-5 text-white'>nuevo juego</h1>
+                    <h1 className='card-title text-white'>NUEVA SALA</h1>
                     <NewGameForm onSubmitProp={createNewGameFromService} />
                     <button className='btn btn-outline-light m-3' disabled={nextPhase} onClick={goToRecommendations}>siguiente</button>
                 </div>

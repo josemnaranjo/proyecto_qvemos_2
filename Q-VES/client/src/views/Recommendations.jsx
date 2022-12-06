@@ -39,8 +39,8 @@ const Recommendations = () => {
     return (
         <div>
             <Navbar/>
-            <div className='container card w-50 mt-5 shadow-lg p-3 mb-5 rounded'>
-                <h1 className=' display-5 mt-4'>ingresa tus recomendaciones</h1>
+            <div className='container card w-75 mt-5 shadow-lg p-3 mb-5 rounded'>
+                <h1 className='card-title mt-4'>INGRESA TUS RECOMENDACIONES</h1>
                 <div className='card-body'>
                     <RecommendationsForm userId={user._id} onSubmitProp={addRecommendationFromService} />
                     <RecommendationsForm userId={user._id} onSubmitProp={addRecommendationFromService} />

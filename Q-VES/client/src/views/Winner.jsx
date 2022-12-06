@@ -2,6 +2,7 @@ import React,{useState, useEffect} from 'react';
 import {useNavigate,useParams} from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import { getWinner } from '../services/recommendations.services';
+import { motion } from 'framer-motion';
 
 
 const Winner = () => {
@@ -32,14 +33,17 @@ const Winner = () => {
     return (
         <div>
             <Navbar />
-            <div className='container card mt-5 shadow-lg p-3 mb-5 rounded'>
-                <h1>¡La película ganadora es!</h1>
+            <motion.div 
+                animate={{ y:100, scale:1 }} 
+                initial={{scale:0}} 
+                className='container card mt-5 shadow-lg p-3 mb-5 rounded'>
+                <h1 className='card-title'>¡La película ganadora es!</h1>
                 {winnerTitle ? 
                 <div className='container card-body rounded'>
-                        <h1 className='display-4'>{winnerTitle}</h1>
+                        <motion.h1 animate={{rotate:360}} className='display-3'>{winnerTitle}</motion.h1>
                         <button className='btn btn-outline-dark m-3' onClick={toEvaluation}>colocar nota</button>
                 </div> : null}
-            </div>
+            </motion.div>
             
         </div>
     );

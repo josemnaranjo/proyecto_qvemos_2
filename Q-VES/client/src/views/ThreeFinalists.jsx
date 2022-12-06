@@ -29,10 +29,10 @@ const ThreeFinalists = () => {
 
     const renderInfo = ()=>{
         if(usuarioAdmin?.admin === "admin"){
-            return(<><button onClick={createFinalistsFromService}>Obtener finalistas</button></>)
+            return(<><button className='btn btn-danger btn-lg' onClick={createFinalistsFromService}>Obtener finalistas</button></>)
         }else{
             return(<><p className='fs-2'>Espera la indiciacion del administrador para continuar</p>
-            <button onClick={getFinalistsFromService}>Obtener finalistas</button></>)
+            <button className='btn btn-danger btn-lg' onClick={getFinalistsFromService}>Obtener finalistas</button></>)
         }
     };
 
@@ -72,7 +72,7 @@ const ThreeFinalists = () => {
             <Navbar />
             <div className='container card w-75 text-white bg-dark mt-5 shadow-lg p-3 mb-5 rounded'>
                 <div className='card-body'>
-                    <h1 className='display-5'>finalistas</h1>
+                    <h1 className='card-title mb-5'>FINALISTAS</h1>
                     {runner ? renderInfo(): null}
                     <ul className='list-group list-group-flush mt-4'>
                         {finalists?.map((movie,i)=>(
@@ -82,7 +82,7 @@ const ThreeFinalists = () => {
                             </li>
                         ))}
                     </ul>
-                    {nextPhase ? <button className='btn btn-outline-light m-3' onClick={toWinnerPage}>Ver ganador</button>: null}
+                    {nextPhase ? <button className='btn btn-outline-light mt-5' onClick={toWinnerPage}>Ver ganador</button>: null}
                 </div>
             </div>
         </div>

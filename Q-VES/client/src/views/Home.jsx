@@ -52,7 +52,7 @@ const Home = () => {
 
                 <div className=' container card text-white bg-dark mt-5 shadow-lg p-3 mb-5 rounded'>
                     <div className='card-body'>
-                        <h1 className='display-5 mt-4'>mejores recomendaciones</h1>
+                        <h1 className='card-title mt-4'>mejores recomendaciones</h1>
                         <ul className='list-group list-group-flush mt-4'>
                             {bestMovies?.map((movie,i)=> (
                                 <li className='list-group-item d-flex justify-content-between align-items-center'> {movie.title}
@@ -65,7 +65,7 @@ const Home = () => {
 
                 <div className='container card mt-5 shadow-lg p-3 mb-5 rounded'>
                     <div className='card-body'>
-                        <h1 className='display-5 mt-4'>salas activas</h1>
+                        <h1 className='card-title mt-4'>salas activas</h1>
                         <ul className='list-group list-group-flush mt-4'>
                             {games?.map((game,i)=>(
                                 <li key={i} className='list-group-item d-flex justify-content-between align-items-center'>
