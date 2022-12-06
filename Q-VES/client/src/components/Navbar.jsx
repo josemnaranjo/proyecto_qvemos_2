@@ -9,7 +9,7 @@ const Navbar = () => {
 
     const renderInfo = ()=>{
         if(user){
-            return(<> ¡Bienvenido {user.firstName}!</>)
+            return(<>¡Bienvenido {user.firstName}!</>)
         }else{
             return(<>Por favor, inicia sesión</>)
         }

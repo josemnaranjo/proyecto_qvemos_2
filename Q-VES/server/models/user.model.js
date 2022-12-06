@@ -27,10 +27,9 @@ const UserSchema = new mongoose.Schema({
         minlength:[8,"La contraseña debe tener minimo 8 caracteres"],
     },
 
-    admin: {
+    admin:{
         type:String,
-        required:[true,"Debes indicar si eres administrador del juego"],
-        default:"jugador"
+        default:"jugador",
     },
     recommendations: [RecommendationSchema]
     

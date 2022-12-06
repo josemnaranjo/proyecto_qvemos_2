@@ -18,7 +18,8 @@ module.exports.Register = async(req,res) => {
 
 module.exports.Login = async(req,res) => {
     try{
-        const user = await User.findOne({email:req.body.email});
+        const {admin} = req.body; 
+        const user = await User.findOneAndUpdate({email:req.body.email},{admin:admin},{new:true});
 
         if(user===null){
             res.json({errors:{error:{message:"El usuario no existe en la base de datos"}}})

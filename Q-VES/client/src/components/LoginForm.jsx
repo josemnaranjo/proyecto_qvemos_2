@@ -15,6 +15,9 @@ const LoginForm = (props) => {
         password: Yup.string()
         .min(8,"Tu contraseña debe ser más larga")
         .required("Por favor ingresa una contraseña"),
+
+        admin: Yup.string()
+        .required("Debes seleccionar si eres administrador o invitado")
     })
     return (
     <div>
@@ -27,7 +30,7 @@ const LoginForm = (props) => {
             onSubmit={values=>onSubmitProp(values)}
             enableReinitialize
             >
-            {({errors,touched,values})=>(
+            {({errors,touched})=>(
                 <Form>
                     <div className= 'container card w-75 text-white bg-dark mt-5 shadow-lg p-3 mb-5 rounded'>
                         <div className='card-body d-flex justify-content-evenly'>
@@ -42,6 +45,14 @@ const LoginForm = (props) => {
                                 <label htmlFor='password'>Contraseña:</label>
                                 <Field id='password' type='password' name='password'/>
                                 {errors.password && touched.password ? <p>{errors.password}</p>:null}
+                            </div>
+
+                            <div className='mt-3'>
+                                <Field id='admin' as='select' className='form-select form-select-sm' name='admin'>
+                                    <option selected>Elige si vas a ser jugador o administrador</option>
+                                    <option value={"admin"}>administrador</option>
+                                    <option value={"jugador"}>jugador</option>
+                                </Field>
                             </div>
                             
                             <div className='mt-0'>
