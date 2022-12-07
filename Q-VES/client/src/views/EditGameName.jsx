@@ -17,7 +17,6 @@ const EditGameName = () => {
     return (
         <div>
             <Navbar />
-            <h1>Editar nombre de juego</h1>
             <EditGameNameForm id={id} onSubmitProp={editGameNameFromService} />
         </div>
     );

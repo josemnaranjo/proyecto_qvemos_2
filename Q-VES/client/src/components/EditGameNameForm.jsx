@@ -1,6 +1,7 @@
 import React from 'react';
 import {Formik,Field,Form} from 'formik';
 import * as Yup from 'yup';
+import { motion } from 'framer-motion';
 
 
 const EditGameNameForm = (props) => {
@@ -24,10 +25,12 @@ const EditGameNameForm = (props) => {
                 onSubmit={(values) => onSubmitProp(id,values)}
                 enableReinitialize
             >
-                {({ errors, touched, values }) => (
-                    <Form>
-                        <div className='row d-flex align-items-center justify-content-center p-3 border rounded'>
-                            <div className='col-4'>
+                {({ errors, touched }) => (
+                    <Form className='d-flex justify-content-center'>
+                        <div className='card w-75 d-flex align-items-center justify-content-center mt-4 p-3 border rounded'>
+
+                        <h1 className='card-title'>Editar nombre de juego</h1>
+                            <div className='card-body'>
                                 <div className='form-group'>
                                     <label htmlFor="name" className='mb-2'>Nombre de la sala:</label>
                                     <Field id="name" type="text" name="name" className="form-control" />
@@ -35,10 +38,10 @@ const EditGameNameForm = (props) => {
                                 </div>
                             </div>
 
-                            <div className='col-4 m-2 d-flex justify-content-center'>
-                                <button className=' btn btn-dark btn-sm' type="submit" disabled={Object.values(errors).length>0 || Object.values(touched).length===0}>
+                            <div className='card-body d-flex justify-content-center'>
+                                <motion.button whileHover={{scale:1.1}}  className=' btn btn-dark btn-sm' type="submit" disabled={Object.values(errors).length>0 || Object.values(touched).length===0}>
                                     Editar nombre
-                                </button>
+                                </motion.button>
                             </div>
                         </div>
                     </Form>
