@@ -49,7 +49,7 @@ const Home = () => {
     return (
         <div>
             <Navbar/>
-            <div className='container-fluid w-75 d-flex'>
+            <div className='container-fluid d-flex w-75'>
 
                 <motion.div whileHover={{scale:1.1}}  className=' container card text-white bg-dark mt-5 shadow-lg p-3 mb-5 rounded'>
                     <div className='card-body'>
