@@ -1,4 +1,5 @@
 import React, {useState,useEffect} from 'react';
+import { useUser } from '../contexts/userContext';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import { getThreeBestMovies, getAllGames, deleteGame , deleteFinalistsCollection } from '../services/recommendations.services';
@@ -6,6 +7,7 @@ import { motion } from 'framer-motion';
 
 
 const Home = () => {
+    const { user} = useUser();
     const [bestMovies,setBestMovies] = useState([]);
     const [games,setGames] = useState([]);
     const navigate = useNavigate()
@@ -25,6 +27,10 @@ const Home = () => {
     const toGame = (id) =>{
         navigate(`/recommendations/${id}`)
     }
+
+    const toNewGame = async()=>{
+        navigate('/new-game')
+    };
 
     const removeGame = async (id) =>{
         try{
@@ -68,7 +74,12 @@ const Home = () => {
                 </motion.div>
 
                 <motion.div whileHover={{scale:1.1}}  className='container card mt-5 shadow-lg p-3 mb-5 rounded'>
-                    <div className='card-body'>
+                    <div className='card-body position-relative'>
+                    <div className='position-absolute bottom-0 start-50 translate-middle-x'>
+                        {user && <button whileHover={{rotate:[0,10,-10,0]}} className='btn btn-outline-dark btn-circle btn-lg' onClick={toNewGame}>
+                                +
+                            </button>}
+                        </div>
                         <h1 className='card-title mt-4'>salas activas</h1>
                         <ul className='list-group list-group-flush mt-4'>
                             {games?.map((game,i)=>(

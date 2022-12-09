@@ -22,9 +22,6 @@ const Navbar = () => {
         else window.alert("Error. No hemos podido desloguear tu usuario")
     };
 
-    const toNewGame = async()=>{
-        navigate('/new-game')
-    };
 
     return (
       <div>
@@ -34,12 +31,6 @@ const Navbar = () => {
                 </a>
                 <div className="navbar" id="navbarNav">
                     <ul className="navbar-nav">
-                        <li className="nav-item">
-                            {user && 
-                            <motion.button whileHover={{rotate:[0,10,-10,0]}} className='btn btn-outline-light btn-sm' onClick={toNewGame}>
-                                Crear sala
-                            </motion.button>}
-                        </li>
                         <li className="nav-item">
                             <a className="nav-link" href="/register">
                                 Register
