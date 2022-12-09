@@ -76,9 +76,9 @@ const Home = () => {
                 <motion.div whileHover={{scale:1.1}}  className='container card mt-5 shadow-lg p-3 mb-5 rounded'>
                     <div className='card-body position-relative'>
                     <div className='position-absolute bottom-0 start-50 translate-middle-x'>
-                        {user && <button whileHover={{rotate:[0,10,-10,0]}} className='btn btn-outline-dark btn-circle btn-lg' onClick={toNewGame}>
+                        {user ? <button whileHover={{rotate:[0,10,-10,0]}} className='btn btn-outline-dark btn-circle btn-lg' onClick={toNewGame}>
                                 +
-                            </button>}
+                            </button>: <p>inicia sesión para crear una nueva sala</p>}
                         </div>
                         <h1 className='card-title mt-4'>salas activas</h1>
                         <ul className='list-group list-group-flush mt-4'>
