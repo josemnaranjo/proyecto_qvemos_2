@@ -9,16 +9,19 @@ const Winner = () => {
 
     const [winnerTitle,setWinnerTitle]=useState();
     const [winnerId,setWinnerId] = useState();
+    const [winnerGenre, setWinnerGenre] = useState();
     const {id} =useParams()
     const navigate = useNavigate();
 
 
     const getWinnerFromService = async () =>{
         const winner = await getWinner(id);
-        const winnerTitle = winner.data.title ;
+        const winnerTitle = winner.data.title;
         const winnerId = winner.data._id;
+        const winnerGenre = winner.data.genre;
         setWinnerTitle(winnerTitle);
         setWinnerId(winnerId);
+        setWinnerGenre(winnerGenre);
     };
 
 
@@ -47,6 +50,7 @@ const Winner = () => {
                             className='display-3'>
                                 {winnerTitle}
                         </motion.h1>
+                        <h2>Género : {winnerGenre}</h2>
                         <motion.button whileHover={{scale:1.2}} className='btn btn-outline-dark m-3' onClick={toEvaluation}>colocar nota</motion.button>
                 </div> : null}
             </motion.div>
