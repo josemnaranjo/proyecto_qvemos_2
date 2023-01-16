@@ -14,6 +14,6 @@ app.use(express.urlencoded({ extended: true }));
 require('./server/routes/routes')(app); 
 
  
-app.listen(8000, () => {
+app.listen(process.env.PORT, () => {
     console.log("Servidor Conectado")
 })
