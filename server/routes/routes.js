@@ -9,7 +9,7 @@ module.exports = app =>{
     app.post("/api/register",UserController.Register);
     app.post("/api/login",UserController.Login);
     app.post("/api/logout",UserController.Logout);
-    app.get("/api/users",authenticate,UserController.getAll);
+    app.get("/api/users",UserController.getAll);
     app.get("/api/user/:id",authenticate,UserController.getUser);
 
     //QVEN
